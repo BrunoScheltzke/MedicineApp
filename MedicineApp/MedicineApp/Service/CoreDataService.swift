@@ -18,9 +18,11 @@ protocol LocalDatabaseServiceProtocol {
 class CoreDataService: LocalDatabaseServiceProtocol {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var container: NSPersistentContainer! = nil
+    private let notificationService: NotificationServiceProtocol
     
-    init() {
+    init(notificationService: NotificationServiceProtocol) {
         container = appDelegate.persistentContainer
+        self.notificationService = notificationService
     }
     
     func fetchAllReminders() -> [ReminderCoreData] {
@@ -45,7 +47,7 @@ class CoreDataService: LocalDatabaseServiceProtocol {
         reminderObj.medicine = medicine
         reminderObj.frequency = NSKeyedArchiver.archivedData(withRootObject: frequency.map { $0.rawValue })
         
-        let notificationIds = NotificationManager.shared.setUpReminder(reminder: Reminder(reminderObj))
+        let notificationIds = notificationService.setup(Reminder(reminderObj))
         reminderObj.notifications = NSKeyedArchiver.archivedData(withRootObject: notificationIds)
         
         do {

@@ -10,6 +10,11 @@ import UserNotifications
 import UIKit
 import CoreData
 
+protocol NotificationServiceProtocol {
+    func setup(_ reminder: Reminder) -> [String]
+    func requestAuthorization(completion: @escaping(NotifiationResult) -> Void)
+}
+
 enum NotifiationResult {
     case error(Error)
     case granted(Bool)
@@ -25,20 +30,16 @@ struct NotificationActionIdentifier {
     static let snooze = "Snooze"
 }
 
-class NotificationManager: NSObject {
-    static let shared = NotificationManager()
+class NotificationManager: NSObject, NotificationServiceProtocol {
     let center = UNUserNotificationCenter.current()
     
-    private override init() {
+    override init() {
         super.init()
         center.delegate = self
         registerCategories()
     }
     
-    func setup(completion: @escaping(NotifiationResult) -> Void) {
-        center.delegate = self
-        registerCategories()
-        
+    func requestAuthorization(completion: @escaping (NotifiationResult) -> Void) {
         center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
             guard error == nil else {
                 completion(.error(error!))
@@ -49,7 +50,7 @@ class NotificationManager: NSObject {
         }
     }
     
-    func registerCategories() {
+    private func registerCategories() {
         let yesAction = UNNotificationAction(identifier: NotificationActionIdentifier.yes, title: NotificationActionIdentifier.yes, options: .foreground)
         //        let snoozeAction = UNNotificationAction(identifier: NotificationActionIdentifier.snooze, title: NotificationActionIdentifier.yes, options: .foreground)
         let noAction = UNNotificationAction(identifier: NotificationActionIdentifier.no, title: NotificationActionIdentifier.no, options: .foreground)
@@ -59,7 +60,7 @@ class NotificationManager: NSObject {
         center.setNotificationCategories([medicineTakingCategory])
     }
     
-    func setUpReminder(reminder: Reminder) -> [String] {
+    func setup(_ reminder: Reminder) -> [String] {
         
         let content = UNMutableNotificationContent()
         content.title = "Medication Reminder"
@@ -107,7 +108,7 @@ class NotificationManager: NSObject {
         }
     }
     
-    func createTestLocalNotification() {
+    private func createTestLocalNotification() {
         let content = UNMutableNotificationContent()
         content.title = "Medication"
         content.body = "Remember to take 1 Paracetamol"
@@ -124,7 +125,7 @@ class NotificationManager: NSObject {
         }
     }
     
-    func createLocalNotification() {
+    private func createLocalNotification() {
         let content = UNMutableNotificationContent()
         content.title = "Medication Reminder"
         content.body = "Remember to take your medication"

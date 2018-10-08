@@ -19,9 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
-        NotificationManager.shared.setup { _ in
-            
-        }
         appCoordinator = AppCoordinator(window: window)
         appCoordinator.start()
         

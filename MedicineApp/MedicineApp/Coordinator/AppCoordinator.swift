@@ -33,7 +33,8 @@ class AppCoordinator: NavigationCoordinator {
         guard let window = window else { return }
         
         let medicinesVC = RemindersViewController()
-        let coredata = CoreDataService()
+        let notificationService = NotificationManager()
+        let coredata = CoreDataService(notificationService: notificationService)
         database = coredata
         let mecicinesVM = RemindersViewModel(database: coredata, delegate: self)
         
