@@ -26,43 +26,64 @@ class RemindersViewModel {
         setupReminders()
     }
     
+    var temp = [Int: [ReminderCellViewModel]]()
+    
+    private func helper(_ reminder: Reminder, date: Date, weekday: Int) {
+        if let register = database.fetchRegister(of: reminder, at: date) {
+            let registerVM = ReminderCellViewModel(register: register, database: database)
+            if temp.keys.contains(weekday) {
+                temp[weekday]!.append(registerVM)
+            } else {
+                temp[weekday] = [registerVM]
+            }
+        } else {
+            let register = database.createRegister(for: reminder, date: date, taken: false)!
+            
+            let registerVM = ReminderCellViewModel(register: register, database: database)
+            if temp.keys.contains(weekday) {
+                temp[weekday]!.append(registerVM)
+            } else {
+                temp[weekday] = [registerVM]
+            }
+        }
+    }
+    
     private func setupReminders() {
+        //pegar os reminders
+        //pra cada reminder
+        //ver se nao é currentdayonly expired
+        //pra cada frequencia ver se tem register
+        //se nao tiver cria
+        
         reminderCellVMsByDate = []
         let reminders = database.fetchAllReminders().map { Reminder($0) }
         
         //group by date()
-        let cal = Calendar(identifier: .gregorian)
-        var weekday = cal.component(.weekday, from: Date())
+        var weekday = calendar.component(.weekday, from: Date())
+        let today = Date()
+        temp = [Int: [ReminderCellViewModel]]()
         
-        var temp0 = [Int: [ReminderCellViewModel]]()
         reminders.forEach { reminder in
-            let reminderVM = ReminderCellViewModel(reminder: reminder)
-            if reminder.frequency.contains(Frequency.everyday) {
-                Frequency.allCases.filter { $0 != Frequency.currentDayOnly &&  $0 != Frequency.everyday }.forEach({ frequency in
-                    if temp0.keys.contains(frequency.weekday()) {
-                        temp0[frequency.weekday()]!.append(reminderVM)
-                    } else {
-                        temp0[frequency.weekday()] = [reminderVM]
-                    }
-                })
-            } else if reminder.frequency.contains(Frequency.currentDayOnly) {
-                if temp0.keys.contains(weekday) {
-                    temp0[weekday]!.append(reminderVM)
+            if reminder.frequency.contains(Frequency.currentDayOnly) {
+                if reminder.date.startOfDay() != today.startOfDay() {
+                    //delete
                 } else {
-                    temp0[weekday] = [reminderVM]
+                    helper(reminder, date: today, weekday: weekday)
                 }
+            } else if reminder.frequency.contains(Frequency.everyday) {
+                Frequency.allCases.filter { $0 != Frequency.currentDayOnly &&  $0 != Frequency.everyday }.forEach({ frequency in
+                    let date = weekday == frequency.weekday() ? today : getDateForFutureWeekday(weekday: frequency.weekday())
+                    helper(reminder, date: date, weekday: frequency.weekday())
+                })
             } else {
                 reminder.frequency.forEach({ frequency in
-                    if temp0.keys.contains(frequency.weekday()) {
-                        temp0[frequency.weekday()]!.append(reminderVM)
-                    } else {
-                        temp0[frequency.weekday()] = [reminderVM]
-                    }
+                    let date = weekday == frequency.weekday() ? today : getDateForFutureWeekday(weekday: frequency.weekday())
+                    helper(reminder, date: date, weekday: frequency.weekday())
                 })
             }
         }
         
-        let sorted = Array(temp0.keys).sorted(by: <)
+        let sorted = Array(temp.keys).sorted(by: <)
         var sortedBasedOnToday: [Int] = []
         
         for _ in 1...7 {
@@ -78,11 +99,15 @@ class RemindersViewModel {
         }
         
         sortedBasedOnToday.forEach { day in
-            if let value = temp0[day] {
+            if let value = temp[day] {
                 reminderCellVMsByDate.append(value)
                 sectionNames.append(day)
             }
         }
+    }
+    
+    private func getDateForFutureWeekday(weekday: Int) -> Date {
+        return calendar.nextDate(after: Date(), matching: DateComponents(weekday: weekday), matchingPolicy: .nextTime)!
     }
     
     // Inputs

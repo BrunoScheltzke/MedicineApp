@@ -19,3 +19,20 @@ let dayFormatter: DateFormatter = {
     formatter.dateFormat = "EEEE"
     return formatter
 }()
+
+let calendar = Calendar.current
+
+extension Date {
+    
+    func startOfDay() -> Date {
+        return calendar.startOfDay(for: self)
+    }
+    
+    func endOfDay() -> Date {
+        return calendar.startOfDay(for: self.adding(days: 1))
+    }
+    
+    func adding(days: Int) -> Date {
+        return calendar.date(byAdding: .day, value: days, to: self)!
+    }
+}

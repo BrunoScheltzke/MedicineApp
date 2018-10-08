@@ -9,13 +9,15 @@
 import Foundation
 
 struct Register {
-    var reminder: Reminder?
+    var reminder: Reminder
     var date: Date
     var taken: Bool
+    var id: String
     
     init(_ dict: [String: Any]) {
-        self.reminder = nil//dict[Keys.Register.reminder] as! Reminder
+        self.reminder = dict[Keys.Register.reminder] as! Reminder
         self.date = dict[Keys.Register.date] as! Date
         self.taken = dict[Keys.Register.taken] as! Bool
+        self.id = dict[Keys.Register.id] as! String
     }
 }

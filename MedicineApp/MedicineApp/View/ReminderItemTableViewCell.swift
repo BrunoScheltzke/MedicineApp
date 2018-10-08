@@ -16,6 +16,10 @@ class ReminderItemTableViewCell: UITableViewCell {
             medicineLabel.text = viewModel.name
             quantityLabel.text = "\(viewModel.quantity)"
             timeLabel.text = "\(viewModel.date)"
+            medicineTakenButton.setTitle(viewModel.medicineButtonTitle, for: .normal)
+            medicineTakenButton.isEnabled = viewModel.medicineButtonIsEnabled
+            
+            medicineTakenButton.backgroundColor = viewModel.medicineButtonIsEnabled ? .red : .gray
         }
     }
     
@@ -23,8 +27,12 @@ class ReminderItemTableViewCell: UITableViewCell {
     @IBOutlet weak var medicineLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var medicineTakenButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    @IBAction func takeMedicine(_ sender: Any) {
+        viewModel.takeMedicine()
     }
 }

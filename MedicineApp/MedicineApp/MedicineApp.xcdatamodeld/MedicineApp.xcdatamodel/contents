@@ -19,7 +19,7 @@
         <attribute name="notifications" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="quantity" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="medicine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MedicineCoreData" inverseName="reminder" inverseEntity="MedicineCoreData" syncable="YES"/>
-        <relationship name="register" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RegisterCoreData" inverseName="reminder" inverseEntity="RegisterCoreData" syncable="YES"/>
+        <relationship name="register" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RegisterCoreData" inverseName="reminder" inverseEntity="RegisterCoreData" syncable="YES"/>
     </entity>
     <elements>
         <element name="MedicineCoreData" positionX="-63" positionY="-18" width="128" height="120"/>

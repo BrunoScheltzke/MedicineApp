@@ -9,15 +9,41 @@
 import UIKit
 
 class ReminderCellViewModel {
-    var date: Date
-    var name: String
-    var quantity: Int
-    var color: UIColor
+    let date: Date
+    let name: String
+    let quantity: Int
+    let color: UIColor
+    var medicineButtonIsEnabled: Bool = false
+    var medicineButtonTitle: String = ""
     
-    init(reminder: Reminder) {
-        date = reminder.date
-        name = reminder.medicine.name
-        quantity = reminder.quantity
-        color = .red
+    private var register: Register
+    private let database: LocalDatabaseServiceProtocol
+    
+    init(register: Register, database: LocalDatabaseServiceProtocol) {
+        self.database = database
+        self.date = register.date
+        self.name = register.reminder.medicine.name
+        self.quantity = register.reminder.quantity
+        self.color = .red
+        self.register = register
+        
+        setupButton()
+    }
+    
+    private func setupButton() {
+        let today = Date()
+        let shouldTakeToday = register.date.startOfDay() == today.startOfDay()
+        
+        if shouldTakeToday {
+            medicineButtonIsEnabled = !register.taken
+            medicineButtonTitle = register.taken ? "Already taken" : "Take"
+        } else {
+            medicineButtonIsEnabled = false
+            medicineButtonTitle = "Not today"
+        }
+    }
+    
+    func takeMedicine() {
+        database.complete(register)
     }
 }
