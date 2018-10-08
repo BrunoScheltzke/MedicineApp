@@ -12,14 +12,13 @@ class ReminderItemTableViewCell: UITableViewCell {
     
     var viewModel: ReminderCellViewModel! {
         didSet {
+            viewModel.delegate = self
+            
             colorView.backgroundColor = viewModel.color
             medicineLabel.text = viewModel.name
             quantityLabel.text = "\(viewModel.quantity)"
             timeLabel.text = "\(viewModel.date)"
-            medicineTakenButton.setTitle(viewModel.medicineButtonTitle, for: .normal)
-            medicineTakenButton.isEnabled = viewModel.medicineButtonIsEnabled
-            
-            medicineTakenButton.backgroundColor = viewModel.medicineButtonIsEnabled ? .red : .gray
+            setupButton()
         }
     }
     
@@ -34,5 +33,18 @@ class ReminderItemTableViewCell: UITableViewCell {
     }
     @IBAction func takeMedicine(_ sender: Any) {
         viewModel.takeMedicine()
+    }
+    
+    fileprivate func setupButton() {
+        medicineTakenButton.setTitle(viewModel.medicineButtonTitle, for: .normal)
+        medicineTakenButton.isEnabled = viewModel.medicineButtonIsEnabled
+        
+        medicineTakenButton.backgroundColor = viewModel.medicineButtonIsEnabled ? .red : .gray
+    }
+}
+
+extension ReminderItemTableViewCell: ReminderCellDelegate {
+    func didUpdateRegister() {
+        setupButton()
     }
 }

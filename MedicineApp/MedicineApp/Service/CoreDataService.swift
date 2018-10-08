@@ -15,7 +15,7 @@ protocol LocalDatabaseServiceProtocol {
     @discardableResult func createMedicine(name: String, brand: String?, unit: Int32, dosage: Dosage) -> MedicineCoreData
     func fetchRegister(of reminder: Reminder, at date: Date) -> Register?
     @discardableResult func createRegister(for reminder: Reminder, date: Date, taken: Bool) -> Register?
-    func complete(_ register: Register)
+    func complete(_ register: Register) -> Register
 }
 
 class CoreDataService: LocalDatabaseServiceProtocol {
@@ -67,7 +67,7 @@ class CoreDataService: LocalDatabaseServiceProtocol {
         return Register(registerObj)
     }
     
-    func complete(_ register: Register) {
+    func complete(_ register: Register) -> Register {
         let obj = fetchRegisterCoreData(byId: register.id)
         obj?.setValue(true, forKey: Keys.Register.taken)
         
@@ -76,6 +76,8 @@ class CoreDataService: LocalDatabaseServiceProtocol {
         } catch {
             print(error)
         }
+        
+        return Register(obj!)
     }
     
     private func fetchRegisterCoreData(byId id: String) -> RegisterCoreData? {

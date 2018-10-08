@@ -16,8 +16,13 @@ class ReminderCellViewModel {
     var medicineButtonIsEnabled: Bool = false
     var medicineButtonTitle: String = ""
     
-    private var register: Register
+    private var register: Register {
+        didSet {
+            setupButton()
+        }
+    }
     private let database: LocalDatabaseServiceProtocol
+    var delegate: ReminderCellDelegate?
     
     init(register: Register, database: LocalDatabaseServiceProtocol) {
         self.database = database
@@ -44,6 +49,11 @@ class ReminderCellViewModel {
     }
     
     func takeMedicine() {
-        database.complete(register)
+        self.register = database.complete(register)
+        delegate?.didUpdateRegister()
     }
+}
+
+protocol ReminderCellDelegate {
+    func didUpdateRegister()
 }
