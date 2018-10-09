@@ -23,7 +23,8 @@ class AppCoordinator: NavigationCoordinator {
     var window: UIWindow?
     var database: LocalDatabaseServiceProtocol!
     
-    init(window: UIWindow?) {
+    init(window: UIWindow?, database: LocalDatabaseServiceProtocol) {
+        self.database = database
         navigationController = UINavigationController()
         navigationController.navigationBar.prefersLargeTitles = true
         self.window = window
@@ -33,10 +34,7 @@ class AppCoordinator: NavigationCoordinator {
         guard let window = window else { return }
         
         let medicinesVC = RemindersViewController()
-        let notificationService = NotificationManager()
-        let coredata = CoreDataService(notificationService: notificationService)
-        database = coredata
-        let mecicinesVM = RemindersViewModel(database: coredata, delegate: self)
+        let mecicinesVM = RemindersViewModel(database: database, delegate: self)
         
         medicinesVC.viewModel = mecicinesVM
         navigationController.viewControllers = [medicinesVC]

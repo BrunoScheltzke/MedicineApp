@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Medicine {
+struct Medicine: Codable {
     var id: String
     var name: String
     var unit: Int

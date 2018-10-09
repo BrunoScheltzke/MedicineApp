@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Register {
+struct Register: Codable {
     var reminder: Reminder
     var date: Date
     var taken: Bool

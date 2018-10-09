@@ -10,8 +10,12 @@ import Foundation
 import WatchConnectivity
 
 class WatchManager: NSObject, WCSessionDelegate {
-    static let shared = WatchManager()
     private let session: WCSession? = WCSession.isSupported() ? WCSession.default : nil
+    private let database: LocalDatabaseServiceProtocol!
+    
+    init(database: LocalDatabaseServiceProtocol) {
+        self.database = database
+    }
     
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         print("Received application context from Watch")
@@ -28,22 +32,14 @@ class WatchManager: NSObject, WCSessionDelegate {
         case CommunicationProtocol.checkedReminder:
             print("User checked a reminder from Watch")
             
-            let taken = userInfo[Keys.medicineTaken] as! Bool
-            let idStr = userInfo[Keys.reminderId] as! String
+            let id = userInfo[Keys.registerId] as! String
             
-            guard let idUrl = URL(string: idStr) else {
-                print("Reminder Id: \(idStr) was not able to be converted into CoreData Object Id")
+            guard let register = database.fetchRegister(byId: id) else {
+                print("No register found from Id: \(id)")
                 return
             }
-            
-            //            guard let reminder = CoreDataManager.shared.fetchReminder(by: idUrl) else {
-            //                print("No reminder found from Id: \(idStr)")
-            //                return
-            //            }
-            //            let date = userInfo[Keys.date] as? Date ?? Date()
-            //
-            //            CoreDataManager.shared.createRegister(date: date, reminder: reminder, taken: taken)
-        //
+            database.complete(register)
+
         default:
             print("Error\(#function)")
         }
@@ -53,30 +49,19 @@ class WatchManager: NSObject, WCSessionDelegate {
         print("Received Message from watch")
         print(message)
         
-        //        guard let command = message[Keys.communicationCommand] as? String else {return}
-        //
-        //        switch command {
-        //        case CommunicationProtocol.dailyReminders:
-        //            print("Daily Reminders Requested")
-        //
-        //            let result = CoreDataManager.shared.fetchTodaysReminders()
-        //
-        //            let reminders = result.0 ?? []
-        //            let registers = result.1 ?? []
-        //
-        //            var remindersDict: [[String: Any]] = []
-        //            reminders.forEach({ (reminder) in remindersDict.append(CoreDataManager.shared.toDictionary(reminder))
-        //            })
-        //
-        //            var registerDict: [[String: Any]] = []
-        //            registers.forEach({ (register) in registerDict.append(CoreDataManager.shared.toDictionary(register))
-        //            })
-        //
-        //            replyHandler([Keys.communicationCommand: CommunicationProtocol.dailyReminders, Keys.reminders: remindersDict, Keys.registers: registerDict])
-        //
-        //        default:
-        //            print("Error\(#function)")
-        //        }
+        guard let command = message[Keys.communicationCommand] as? String else {return}
+
+        switch command {
+        case CommunicationProtocol.dailyReminders:
+            print("Daily Reminders Requested")
+
+            let result = database.fetchTodayRegisters().map { try? JSONEncoder().encode($0) }
+
+            replyHandler([Keys.communicationCommand: CommunicationProtocol.dailyReminders, Keys.registers: result])
+
+        default:
+            print("Error\(#function)")
+        }
     }
     
     func updateApplicationContext(context: [String: Any]) throws {

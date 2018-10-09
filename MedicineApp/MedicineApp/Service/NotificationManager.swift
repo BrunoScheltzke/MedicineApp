@@ -10,16 +10,6 @@ import UserNotifications
 import UIKit
 import CoreData
 
-protocol NotificationServiceProtocol {
-    func setup(_ reminder: Reminder) -> [String]
-    func requestAuthorization(completion: @escaping(NotifiationResult) -> Void)
-}
-
-enum NotifiationResult {
-    case error(Error)
-    case granted(Bool)
-}
-
 struct NotificationCategoryIdentifier {
     static let medicineTaking = "TAKEMEDICINE"
 }

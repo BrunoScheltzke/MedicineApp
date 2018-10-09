@@ -14,12 +14,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var appCoordinator: AppCoordinator!
+    private var watchManager: WatchManager!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
-        appCoordinator = AppCoordinator(window: window)
+        let notificationManager = NotificationManager()
+        let coredata = CoreDataService(notificationService: notificationManager)
+        
+        watchManager = WatchManager(database: coredata)
+        watchManager.startSession()
+        
+        appCoordinator = AppCoordinator(window: window, database: coredata)
         appCoordinator.start()
         
         return true

@@ -56,7 +56,7 @@ class RemindersViewModel {
         //se nao tiver cria
         
         reminderCellVMsByDate = []
-        let reminders = database.fetchAllReminders().map { Reminder($0) }
+        let reminders = database.fetchAllReminders()
         
         //group by date()
         var weekday = calendar.component(.weekday, from: Date())

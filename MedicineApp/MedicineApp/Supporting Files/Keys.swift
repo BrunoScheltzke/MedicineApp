@@ -17,6 +17,7 @@ struct CommunicationProtocol {
 
 struct Keys {
     static let reminderId = "reminderId"
+    static let registerId = "registerId"
     static let date = "date"
     static let medicineTaken = "medicineTaken"
     static let communicationCommand = "command"

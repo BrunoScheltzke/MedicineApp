@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Frequency: String, CaseIterable {
+enum Frequency: String, CaseIterable, Codable {
     case everyday = "Everyday"
     case everySunday = "Every sunday"
     case everyMonday = "Every monday"

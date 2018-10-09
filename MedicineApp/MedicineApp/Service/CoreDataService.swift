@@ -9,15 +9,6 @@
 import UIKit
 import CoreData
 
-protocol LocalDatabaseServiceProtocol {
-    func fetchAllReminders() -> [ReminderCoreData]
-    @discardableResult func createReminder(medicine: MedicineCoreData, date: Date, dosage: Dosage, frequency: [Frequency], quantity: Int32) -> ReminderCoreData
-    @discardableResult func createMedicine(name: String, brand: String?, unit: Int32, dosage: Dosage) -> MedicineCoreData
-    func fetchRegister(of reminder: Reminder, at date: Date) -> Register?
-    @discardableResult func createRegister(for reminder: Reminder, date: Date, taken: Bool) -> Register?
-    func complete(_ register: Register) -> Register
-}
-
 class CoreDataService: LocalDatabaseServiceProtocol {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var container: NSPersistentContainer! = nil
@@ -26,6 +17,14 @@ class CoreDataService: LocalDatabaseServiceProtocol {
     init(notificationService: NotificationServiceProtocol) {
         container = appDelegate.persistentContainer
         self.notificationService = notificationService
+    }
+    
+    func getRegister(of reminder: Reminder, at date: Date) -> Register {
+        if let register = fetchRegister(of: reminder, at: date) {
+            return register
+        } else {
+            return createRegister(for: reminder, date: date, taken: false)!
+        }
     }
     
     func fetchRegister(of reminder: Reminder, at date: Date) -> Register? {
@@ -80,6 +79,33 @@ class CoreDataService: LocalDatabaseServiceProtocol {
         return Register(obj!)
     }
     
+    func fetchReminder(byId id: String) -> Reminder? {
+        if let reminder = fetchReminderCoreData(byId: id) {
+            return Reminder(reminder)
+        }
+        return nil
+    }
+    func fetchRegister(byId id: String) -> Register? {
+        if let register = fetchRegisterCoreData(byId: id) {
+            return Register(register)
+        }
+        return nil
+    }
+    
+    func fetchTodayRegisters() -> [Register] {
+        let reminders = fetchAllReminders()
+        let today = Date()
+        let weekday = calendar.component(.weekday, from: today)
+        
+        let todayReminders = reminders.filter { reminder -> Bool in
+            reminder.frequency.map {$0.weekday()}.contains(weekday) ||
+            reminder.frequency.contains(.everyday) ||
+            (reminder.frequency.contains(.currentDayOnly) &&  reminder.date.startOfDay() == today.startOfDay())
+        }
+        
+        return todayReminders.map { getRegister(of: $0, at: today) }
+    }
+    
     private func fetchRegisterCoreData(byId id: String) -> RegisterCoreData? {
         guard let url = URL(string: id), let reminderObjId = container.viewContext
             .persistentStoreCoordinator?
@@ -100,7 +126,17 @@ class CoreDataService: LocalDatabaseServiceProtocol {
         return container.viewContext.object(with: reminderObjId) as? ReminderCoreData
     }
     
-    func fetchAllReminders() -> [ReminderCoreData] {
+    private func fetchMedicineCoreData(byId id: String) -> MedicineCoreData? {
+        guard let url = URL(string: id), let medicineObjId = container.viewContext
+            .persistentStoreCoordinator?
+            .managedObjectID(forURIRepresentation: url) else {
+                return nil
+        }
+        
+        return container.viewContext.object(with: medicineObjId) as? MedicineCoreData
+    }
+    
+    func fetchAllReminders() -> [Reminder] {
         let request = NSFetchRequest<ReminderCoreData>(entityName: Keys.Reminder.tableName)
         var reminders: [ReminderCoreData] = []
         
@@ -110,16 +146,18 @@ class CoreDataService: LocalDatabaseServiceProtocol {
             print(error)
         }
         
-        return reminders
+        return reminders.map{ Reminder($0) }
     }
     
-    @discardableResult func createReminder(medicine: MedicineCoreData, date: Date, dosage: Dosage, frequency: [Frequency] = [], quantity: Int32) -> ReminderCoreData {
+    @discardableResult func createReminder(medicine: Medicine, date: Date, dosage: Dosage, frequency: [Frequency] = [], quantity: Int32) -> Reminder {
         let reminderObj = NSEntityDescription.insertNewObject(forEntityName: Keys.Reminder.tableName, into: container.viewContext) as! ReminderCoreData
+        
+        let medicineObj = fetchMedicineCoreData(byId: medicine.id)!
         
         reminderObj.date = date
         reminderObj.dosage = dosage.rawValue
         reminderObj.quantity = quantity
-        reminderObj.medicine = medicine
+        reminderObj.medicine = medicineObj
         reminderObj.frequency = NSKeyedArchiver.archivedData(withRootObject: frequency.map { $0.rawValue })
         
         let notificationIds = notificationService.setup(Reminder(reminderObj))
@@ -131,10 +169,10 @@ class CoreDataService: LocalDatabaseServiceProtocol {
             print(error)
         }
         
-        return reminderObj
+        return Reminder(reminderObj)
     }
     
-    @discardableResult func createMedicine(name: String, brand: String?, unit: Int32, dosage: Dosage) -> MedicineCoreData {
+    @discardableResult func createMedicine(name: String, brand: String?, unit: Int32, dosage: Dosage) -> Medicine {
         let medicine = NSEntityDescription.insertNewObject(forEntityName: Keys.Medicine.tableName,
                                                            into: container.viewContext) as! MedicineCoreData
         medicine.name = name
@@ -148,6 +186,6 @@ class CoreDataService: LocalDatabaseServiceProtocol {
             print(error)
         }
         
-        return medicine
+        return Medicine(medicine)
     }
 }

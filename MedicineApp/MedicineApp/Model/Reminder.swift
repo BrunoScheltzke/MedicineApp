@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Reminder {
+struct Reminder: Codable {
     var id: String
     var medicine: Medicine
     var dosage: Dosage
