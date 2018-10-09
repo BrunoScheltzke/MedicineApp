@@ -21,7 +21,7 @@ class RegisterCell: NSObject {
         didSet {
             medicineLabel.setText(register.reminder.medicine.name)
             quantityLabel.setText("\(register.reminder.quantity), \(register.reminder.dosage)")
-            dateLabel.setText("\(Date())")
+            dateLabel.setText(dateFormatter.string(from: register.reminder.date))
             
             let today = Date()
             let shouldTakeToday = register.date.startOfDay() == today.startOfDay()
@@ -29,9 +29,12 @@ class RegisterCell: NSObject {
             if shouldTakeToday {
                 takeButton.setEnabled(!register.taken)
                 let title = register.taken ? "Already taken" : "Take"
+                let color: UIColor = register.taken ? .gray : .red
                 takeButton.setTitle(title)
+                takeButton.setBackgroundColor(color)
             } else {
                 takeButton.setEnabled(false)
+                takeButton.setBackgroundColor(.gray)
                 takeButton.setTitle("Not today")
             }
         }
