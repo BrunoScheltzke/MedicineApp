@@ -20,16 +20,19 @@ class InterfaceController: WKInterfaceController {
     
     func fetchDataSource() {
         iOSManager.shared.getDailyReminders({ registers in
-            self.tableView.setNumberOfRows(registers.count, withRowType: "RegisterCell")
-            
-            for index in 0..<self.tableView.numberOfRows {
-                guard let controller = self.tableView.rowController(at: index) as? RegisterCell else { continue }
-                controller.delegate = self
-                controller.register = registers[index]
-            }
-            
+            self.setupTable(with: registers)
         }) { error in
             print(error)
+        }
+    }
+    
+    func setupTable(with registers: [Register]) {
+        self.tableView.setNumberOfRows(registers.count, withRowType: "RegisterCell")
+        
+        for index in 0..<self.tableView.numberOfRows {
+            guard let controller = self.tableView.rowController(at: index) as? RegisterCell else { continue }
+            controller.delegate = self
+            controller.register = registers[index]
         }
     }
     
@@ -48,6 +51,11 @@ class InterfaceController: WKInterfaceController {
 extension InterfaceController: CellDelegate {
     func askedToTakeMedicine(for register: Register) {
         iOSManager.shared.tookMedicineFor(register)
-        fetchDataSource()
+    }
+}
+
+extension InterfaceController: RegisterListener {
+    func updatedTodayRegisters(_ registers: [Register]) {
+        setupTable(with: registers)
     }
 }

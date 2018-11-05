@@ -89,3 +89,14 @@ class WatchManager: NSObject, WCSessionDelegate {
     func sessionDidDeactivate(_ session: WCSession) {}
 }
 
+extension WatchManager: RegisterListener {
+    func updatedTodayRegisters(_ registers: [Register]) {
+        let registersData = registers.map { try? JSONEncoder().encode($0) }
+        do {
+            try updateApplicationContext(context: [Keys.communicationCommand: CommunicationProtocol.dailyReminders, Keys.registers: registersData])
+            print("Sent updated registers context to Watch")
+        } catch {
+            print("Failed to send updated register to Watch")
+        }
+    }
+}

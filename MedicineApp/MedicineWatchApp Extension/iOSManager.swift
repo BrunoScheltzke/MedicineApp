@@ -14,6 +14,8 @@ class iOSManager: NSObject, WCSessionDelegate {
     static let shared = iOSManager()
     private let session: WCSession? = WCSession.isSupported() ? WCSession.default : nil
     
+    var listener: RegisterListener?
+    
     func getDailyReminders(_ completion: @escaping ([Register]) -> Void, _ errorHandler: @escaping (Error) -> Void) {
         session?.sendMessage([Keys.communicationCommand: CommunicationProtocol.dailyReminders], replyHandler: { (response) in
             
@@ -40,7 +42,20 @@ class iOSManager: NSObject, WCSessionDelegate {
     
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         print("Received communication from iPhone")
-        print(applicationContext)
+        
+        if let command = applicationContext[Keys.communicationCommand] as? String, command == CommunicationProtocol.dailyReminders {
+            let registersData = applicationContext[Keys.registers] as! [Data?]
+            var registers: [Register] = []
+            
+            registersData.forEach({ data in
+                if let data = data,
+                    let register = try? JSONDecoder().decode(Register.self, from: data) {
+                    registers.append(register)
+                }
+            })
+            
+            listener?.updatedTodayRegisters(registers)
+        }
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {

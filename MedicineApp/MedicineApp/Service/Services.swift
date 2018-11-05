@@ -9,6 +9,7 @@
 import Foundation
 
 protocol LocalDatabaseServiceProtocol {
+    var listener: RegisterListener? { get set }
     func fetchAllReminders() -> [Reminder]
     @discardableResult func createReminder(medicine: Medicine, date: Date, dosage: Dosage, frequency: [Frequency], quantity: Int32) -> Reminder
     @discardableResult func createMedicine(name: String, brand: String?, unit: Int32, dosage: Dosage) -> Medicine
@@ -19,6 +20,10 @@ protocol LocalDatabaseServiceProtocol {
     func fetchReminder(byId id: String) -> Reminder?
     func fetchRegister(byId id: String) -> Register?
     func fetchTodayRegisters() -> [Register]
+}
+
+protocol RegisterListener {
+    func updatedTodayRegisters(_ registers: [Register])
 }
 
 protocol NotificationServiceProtocol {

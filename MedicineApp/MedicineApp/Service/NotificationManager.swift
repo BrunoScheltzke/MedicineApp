@@ -97,24 +97,7 @@ class NotificationManager: NSObject, NotificationServiceProtocol {
             print(error ?? "Setup notification for medication")
         }
     }
-    
-    private func createTestLocalNotification() {
-        let content = UNMutableNotificationContent()
-        content.title = "Medication"
-        content.body = "Remember to take 1 Paracetamol"
-        content.categoryIdentifier = NotificationCategoryIdentifier.medicineTaking
-        content.userInfo = [Keys.reminderId: "x-coredata://8C1C55E8-70EA-4606-AF3C-8EEF5F1711C5/Reminder/p1"]
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5.0, repeats: false)
-        
-        // Create the request object.
-        let request = UNNotificationRequest(identifier: "PillAlarm", content: content, trigger: trigger)
-        
-        center.add(request) { (error) in
-            print(error ?? "")
-        }
-    }
-    
+
     private func createLocalNotification() {
         let content = UNMutableNotificationContent()
         content.title = "Medication Reminder"

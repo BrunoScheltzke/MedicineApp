@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         watchManager = WatchManager(database: coredata)
         watchManager.startSession()
         
+        coredata.listener = watchManager
+        
         appCoordinator = AppCoordinator(window: window, database: coredata)
         appCoordinator.start()
         

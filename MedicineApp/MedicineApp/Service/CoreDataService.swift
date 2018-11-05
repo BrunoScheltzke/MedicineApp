@@ -13,6 +13,7 @@ class CoreDataService: LocalDatabaseServiceProtocol {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var container: NSPersistentContainer! = nil
     private let notificationService: NotificationServiceProtocol
+    var listener: RegisterListener?
     
     init(notificationService: NotificationServiceProtocol) {
         container = appDelegate.persistentContainer
@@ -63,7 +64,13 @@ class CoreDataService: LocalDatabaseServiceProtocol {
             print(error)
         }
         
-        return Register(registerObj)
+        let register = Register(registerObj)
+        
+        if register.date.startOfDay() == Date().startOfDay() {
+            listener?.updatedTodayRegisters(fetchTodayRegisters())
+        }
+        
+        return register
     }
     
     func complete(_ register: Register) -> Register {
@@ -76,7 +83,13 @@ class CoreDataService: LocalDatabaseServiceProtocol {
             print(error)
         }
         
-        return Register(obj!)
+        let register = Register(obj!)
+        
+        if register.date.startOfDay() == Date().startOfDay() {
+            listener?.updatedTodayRegisters(fetchTodayRegisters())
+        }
+        
+        return register
     }
     
     func fetchReminder(byId id: String) -> Reminder? {
