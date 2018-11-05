@@ -57,6 +57,7 @@
 		84F2ADBC216C0CC80017DB42 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2ADBA216C0C8F0017DB42 /* Services.swift */; };
 		84F2ADBD216C0CFC0017DB42 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840442B5216A58B4007AE8EF /* Keys.swift */; };
 		84F2ADBE216C0D090017DB42 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840442B3216A5895007AE8EF /* Date.swift */; };
+		84F2D85A21905A7D00F6163E /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F2D85921905A7D00F6163E /* Intents.framework */; };
 		9853F0D4855A67F9D0FC3C33 /* Pods_MedicineApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4597D023E5387B0B324F225 /* Pods_MedicineApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -148,6 +149,8 @@
 		84F2ADA5216C05000017DB42 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		84F2ADB1216C08490017DB42 /* RegisterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCell.swift; sourceTree = "<group>"; };
 		84F2ADBA216C0C8F0017DB42 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		84F2D858219058C700F6163E /* MedicineApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MedicineApp.entitlements; sourceTree = "<group>"; };
+		84F2D85921905A7D00F6163E /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		8AFDF54A5AF356942EB757D9 /* Pods-MedicineApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicineApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MedicineApp/Pods-MedicineApp.release.xcconfig"; sourceTree = "<group>"; };
 		9E932D7FF01DD3E2C3DCB71F /* Pods-MedicineApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicineApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MedicineApp/Pods-MedicineApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C4597D023E5387B0B324F225 /* Pods_MedicineApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MedicineApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F2D85A21905A7D00F6163E /* Intents.framework in Frameworks */,
 				9853F0D4855A67F9D0FC3C33 /* Pods_MedicineApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,6 +201,7 @@
 		8474D942216A4A83008FB7D8 /* MedicineApp */ = {
 			isa = PBXGroup;
 			children = (
+				84F2D858219058C700F6163E /* MedicineApp.entitlements */,
 				8474D95D216A4B8D008FB7D8 /* Coordinator */,
 				8474D95C216A4B86008FB7D8 /* Service */,
 				8474D95B216A4B7D008FB7D8 /* ViewModel */,
@@ -316,6 +321,7 @@
 		9309955C35BC77C90E4684DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84F2D85921905A7D00F6163E /* Intents.framework */,
 				C4597D023E5387B0B324F225 /* Pods_MedicineApp.framework */,
 			);
 			name = Frameworks;
@@ -400,6 +406,11 @@
 				TargetAttributes = {
 					8474D93F216A4A83008FB7D8 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.Siri = {
+								enabled = 1;
+							};
+						};
 					};
 					84F2AD8A216C04FE0017DB42 = {
 						CreatedOnToolsVersion = 10.0;
@@ -711,10 +722,11 @@
 			baseConfigurationReference = 9E932D7FF01DD3E2C3DCB71F /* Pods-MedicineApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MedicineApp/MedicineApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M3PUPH2NBH;
 				INFOPLIST_FILE = MedicineApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -731,10 +743,11 @@
 			baseConfigurationReference = 8AFDF54A5AF356942EB757D9 /* Pods-MedicineApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MedicineApp/MedicineApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M3PUPH2NBH;
 				INFOPLIST_FILE = MedicineApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

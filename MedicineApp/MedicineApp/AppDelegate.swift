@@ -15,13 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var appCoordinator: AppCoordinator!
     private var watchManager: WatchManager!
+    private var coredata: CoreDataService!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         let notificationManager = NotificationManager()
-        let coredata = CoreDataService(notificationService: notificationManager)
+        coredata = CoreDataService(notificationService: notificationManager)
         
         watchManager = WatchManager(database: coredata)
         watchManager.startSession()
@@ -30,6 +31,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         appCoordinator = AppCoordinator(window: window, database: coredata)
         appCoordinator.start()
+        
+        return true
+    }
+    
+    // MARK: Siri Shortcuts
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        
+        if let firstRegister = coredata.fetchTodayRegisters().first {
+            coredata.complete(firstRegister)
+        }
         
         return true
     }
