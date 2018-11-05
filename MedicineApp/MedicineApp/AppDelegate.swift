@@ -27,18 +27,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         watchManager = WatchManager(database: coredata)
         watchManager.startSession()
         
-        coredata.listener = watchManager
+        coredata.watchListener = watchManager
         
         appCoordinator = AppCoordinator(window: window, database: coredata)
         appCoordinator.start()
-        
+
         return true
     }
     
     // MARK: Siri Shortcuts
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         
-        if let firstRegister = coredata.fetchTodayRegisters().first {
+        let todayRegister = coredata.fetchTodayRegisters().filter { !$0.taken }
+        
+        if let firstRegister = todayRegister.first {
             coredata.complete(firstRegister)
         }
         

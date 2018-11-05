@@ -13,6 +13,7 @@ class CoreDataService: LocalDatabaseServiceProtocol {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var container: NSPersistentContainer! = nil
     private let notificationService: NotificationServiceProtocol
+    var watchListener: RegisterListener?
     var listener: RegisterListener?
     
     init(notificationService: NotificationServiceProtocol) {
@@ -67,6 +68,7 @@ class CoreDataService: LocalDatabaseServiceProtocol {
         let register = Register(registerObj)
         
         if register.date.startOfDay() == Date().startOfDay() {
+            watchListener?.updatedTodayRegisters(fetchTodayRegisters())
             listener?.updatedTodayRegisters(fetchTodayRegisters())
         }
         
@@ -86,7 +88,9 @@ class CoreDataService: LocalDatabaseServiceProtocol {
         let register = Register(obj!)
         
         if register.date.startOfDay() == Date().startOfDay() {
-            listener?.updatedTodayRegisters(fetchTodayRegisters())
+            let registers = fetchTodayRegisters()
+            watchListener?.updatedTodayRegisters(registers)
+            listener?.updatedTodayRegisters(registers)
         }
         
         return register

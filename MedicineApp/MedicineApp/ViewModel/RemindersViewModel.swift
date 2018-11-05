@@ -17,6 +17,8 @@ class RemindersViewModel {
     private let database: LocalDatabaseServiceProtocol
     private let delegate: RemindersViewModelDelegate
     
+    var reminderListDelegate: ReminderListDelegate?
+    
     init(database: LocalDatabaseServiceProtocol, delegate: RemindersViewModelDelegate) {
         self.database = database
         self.delegate = delegate
@@ -133,4 +135,15 @@ class RemindersViewModel {
 
 protocol RemindersViewModelDelegate {
     func didAskToAddReminder()
+}
+
+protocol ReminderListDelegate {
+    func updatedRemindersList()
+}
+
+extension RemindersViewModel: RegisterListener {
+    func updatedTodayRegisters(_ registers: [Register]) {
+        setupReminders()
+        reminderListDelegate?.updatedRemindersList()
+    }
 }

@@ -35,7 +35,7 @@ class AppCoordinator: NavigationCoordinator {
         
         let medicinesVC = RemindersViewController()
         let mecicinesVM = RemindersViewModel(database: database, delegate: self)
-        
+        database.listener = mecicinesVM
         medicinesVC.viewModel = mecicinesVM
         navigationController.viewControllers = [medicinesVC]
         

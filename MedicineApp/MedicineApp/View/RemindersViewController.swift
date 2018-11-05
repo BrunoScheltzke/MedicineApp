@@ -15,7 +15,7 @@ class RemindersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewModel.reminderListDelegate = self
         setupTableView()
         setupNavigationBar()
     }
@@ -41,6 +41,12 @@ class RemindersViewController: UIViewController {
     
     @objc func addReminder() {
         viewModel.addReminder()
+    }
+}
+
+extension RemindersViewController: ReminderListDelegate {
+    func updatedRemindersList() {
+        tableView.reloadData()
     }
 }
 
