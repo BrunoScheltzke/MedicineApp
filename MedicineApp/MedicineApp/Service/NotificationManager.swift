@@ -23,6 +23,8 @@ struct NotificationActionIdentifier {
 class NotificationManager: NSObject, NotificationServiceProtocol {
     let center = UNUserNotificationCenter.current()
     
+    var database: LocalDatabaseServiceProtocol!
+    
     override init() {
         super.init()
         center.delegate = self
@@ -121,29 +123,19 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
         print("Notification response: \(response.actionIdentifier)")
         
         if response.notification.request.content.categoryIdentifier == NotificationCategoryIdentifier.medicineTaking {
-            var taken: Bool
-            
-            switch response.actionIdentifier {
-            case NotificationActionIdentifier.yes:
-                taken = true
-            default:
-                taken = false
-            }
-            
+
             let reminderDict = response.notification.request.content.userInfo
-            let idStr = reminderDict[Keys.reminderId] as! String
-            
-            guard let idUrl = URL(string: idStr) else {
-                print("Error with reminder id: \(idStr)")
+            let id = reminderDict[Keys.reminderId] as! String
+
+            guard let reminder = database.fetchReminder(byId: id) else {
+                print("No reminder found for reminder id: \(id)")
                 return
             }
-            //            guard let reminder = CoreDataManager.shared.fetchReminder(by: idUrl) else {
-            //                print("No reminder found for reminder id: \(idStr)")
-            //                return
-            //            }
-            //            let date = reminderDict[Keys.date] as? Date ?? Date()
-            //
-            //            CoreDataManager.shared.createRegister(date: date, reminder: reminder, taken: taken)
+            let date = Date()
+            
+            let register = database.getRegister(of: reminder, at: date)
+            
+            database.complete(register)
             
             completionHandler()
         }

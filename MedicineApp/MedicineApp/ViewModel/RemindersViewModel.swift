@@ -11,7 +11,7 @@ import Foundation
 class RemindersViewModel {
     // Outputs
     var reminderCellVMsByDate: [[ReminderCellViewModel]] = []
-    var sectionNames: [Int]
+    var sectionNames: [String]
     let title: String
     
     private let database: LocalDatabaseServiceProtocol
@@ -21,7 +21,7 @@ class RemindersViewModel {
         self.database = database
         self.delegate = delegate
         
-        title = "Today"
+        title = "Medicines"
         sectionNames = []
         setupReminders()
     }
@@ -101,7 +101,18 @@ class RemindersViewModel {
         sortedBasedOnToday.forEach { day in
             if let value = temp[day] {
                 reminderCellVMsByDate.append(value)
-                sectionNames.append(day)
+                var dayInWeek = ""
+                switch day {
+                case 1: dayInWeek = "Sunday"
+                case 2: dayInWeek = "Monday"
+                case 3: dayInWeek = "Tuesday"
+                case 4: dayInWeek = "Wednesday"
+                case 5: dayInWeek = "Thursday"
+                case 6: dayInWeek = "Friday"
+                case 7: dayInWeek = "Saturday"
+                default: dayInWeek = ""
+                }
+                sectionNames.append(dayInWeek)
             }
         }
     }

@@ -73,7 +73,7 @@ class CoreDataService: LocalDatabaseServiceProtocol {
         return register
     }
     
-    func complete(_ register: Register) -> Register {
+    @discardableResult func complete(_ register: Register) -> Register {
         let obj = fetchRegisterCoreData(byId: register.id)
         obj?.setValue(true, forKey: Keys.Register.taken)
         

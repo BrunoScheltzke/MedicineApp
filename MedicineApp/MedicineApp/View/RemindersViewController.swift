@@ -46,7 +46,11 @@ class RemindersViewController: UIViewController {
 
 extension RemindersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "\(viewModel.sectionNames[section])"
+        switch section {
+        case 0: return "Today"
+        case 1: return "Tomorrow"
+        default: return viewModel.sectionNames[section]
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

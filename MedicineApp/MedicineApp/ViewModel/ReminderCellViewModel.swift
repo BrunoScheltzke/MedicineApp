@@ -9,12 +9,13 @@
 import UIKit
 
 class ReminderCellViewModel {
-    let date: Date
+    let date: String
     let name: String
-    let quantity: Int
-    let color: UIColor
+    let quantity: String
+    var color: UIColor
     var medicineButtonIsEnabled: Bool = false
     var medicineButtonTitle: String = ""
+    var medicineButtonIsHidden: Bool = false
     
     private var register: Register {
         didSet {
@@ -25,11 +26,16 @@ class ReminderCellViewModel {
     var delegate: ReminderCellDelegate?
     
     init(register: Register, database: LocalDatabaseServiceProtocol) {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "HH:mm"
+        
         self.database = database
-        self.date = register.date
+        self.date = dateFormatterGet.string(from: register.date)
         self.name = register.reminder.medicine.name
-        self.quantity = register.reminder.quantity
-        self.color = .red
+        self.quantity = "\(register.reminder.quantity) \(register.reminder.dosage.rawValue)"
+        
+        self.color = register.taken ? #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1) : #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        
         self.register = register
         
         setupButton()
@@ -43,13 +49,14 @@ class ReminderCellViewModel {
             medicineButtonIsEnabled = !register.taken
             medicineButtonTitle = register.taken ? "Already taken" : "Take"
         } else {
-            medicineButtonIsEnabled = false
-            medicineButtonTitle = "Not today"
+            medicineButtonIsHidden = true
+            self.color = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
         }
     }
     
     func takeMedicine() {
         self.register = database.complete(register)
+        self.color = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
         delegate?.didUpdateRegister()
     }
 }

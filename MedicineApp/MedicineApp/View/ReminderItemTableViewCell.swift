@@ -16,9 +16,10 @@ class ReminderItemTableViewCell: UITableViewCell {
             
             colorView.backgroundColor = viewModel.color
             medicineLabel.text = viewModel.name
-            quantityLabel.text = "\(viewModel.quantity)"
-            timeLabel.text = "\(viewModel.date)"
+            quantityLabel.text = viewModel.quantity
+            timeLabel.text = viewModel.date
             setupButton()
+            medicineTakenButton.isHidden = viewModel.medicineButtonIsHidden
         }
     }
     
@@ -36,10 +37,12 @@ class ReminderItemTableViewCell: UITableViewCell {
     }
     
     fileprivate func setupButton() {
+        colorView.backgroundColor = viewModel.color
         medicineTakenButton.setTitle(viewModel.medicineButtonTitle, for: .normal)
         medicineTakenButton.isEnabled = viewModel.medicineButtonIsEnabled
         
-        medicineTakenButton.backgroundColor = viewModel.medicineButtonIsEnabled ? .red : .gray
+        medicineTakenButton.backgroundColor = viewModel.color
+        medicineTakenButton.isHidden = viewModel.medicineButtonIsHidden
     }
 }
 
