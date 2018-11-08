@@ -34,7 +34,7 @@ class ReminderCellViewModel {
         self.name = register.reminder.medicine.name
         self.quantity = "\(register.reminder.quantity) \(register.reminder.dosage.rawValue)"
         
-        self.color = register.taken ? #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1) : #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        self.color = register.taken ? #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1) : #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         
         self.register = register
         
@@ -50,13 +50,13 @@ class ReminderCellViewModel {
             medicineButtonTitle = register.taken ? "Already taken" : "Take"
         } else {
             medicineButtonIsHidden = true
-            self.color = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
+            self.color = #colorLiteral(red: 0.5019036531, green: 0.5019937158, blue: 0.5018979907, alpha: 1)
         }
     }
     
     func takeMedicine() {
         self.register = database.complete(register)
-        self.color = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
+        self.color = #colorLiteral(red: 0.5019036531, green: 0.5019937158, blue: 0.5018979907, alpha: 1)
         delegate?.didUpdateRegister()
     }
 }

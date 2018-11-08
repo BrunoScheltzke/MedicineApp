@@ -29,7 +29,7 @@ class RegisterCell: NSObject {
             if shouldTakeToday {
                 takeButton.setEnabled(!register.taken)
                 let title = register.taken ? "Already taken" : "Take"
-                let color: UIColor = register.taken ? .gray : .red
+                let color: UIColor = register.taken ? .gray : #colorLiteral(red: 0.2138460875, green: 0.6966941953, blue: 0.1403182149, alpha: 1)
                 takeButton.setTitle(title)
                 takeButton.setBackgroundColor(color)
             } else {
