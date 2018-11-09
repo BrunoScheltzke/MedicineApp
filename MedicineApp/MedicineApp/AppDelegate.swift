@@ -22,6 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         let notificationManager = NotificationManager()
+        
+        notificationManager.requestAuthorization { authorization in
+            print(authorization)
+        }
+        
         coredata = CoreDataService(notificationService: notificationManager)
         
         watchManager = WatchManager(database: coredata)
