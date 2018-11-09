@@ -56,7 +56,7 @@ class NotificationManager: NSObject, NotificationServiceProtocol {
         
         let content = UNMutableNotificationContent()
         content.title = "Medication Reminder"
-        content.body = "Remember to take \(reminder.quantity, reminder.dosage) of \(reminder.medicine.name)"
+        content.body = "Remember to take \(reminder.quantity) \(reminder.dosage.rawValue) of \(reminder.medicine.name)"
         content.categoryIdentifier = NotificationCategoryIdentifier.medicineTaking
         content.userInfo = [Keys.reminderId: reminder.id]
         
