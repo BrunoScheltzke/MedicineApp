@@ -26,11 +26,8 @@ class ReminderCellViewModel {
     var delegate: ReminderCellDelegate?
     
     init(register: Register, database: LocalDatabaseServiceProtocol) {
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "HH:mm"
-        
         self.database = database
-        self.date = dateFormatterGet.string(from: register.date)
+        self.date = dateFormatter.string(from: register.reminder.date)
         self.name = register.reminder.medicine.name
         self.quantity = "\(register.reminder.quantity) \(register.reminder.dosage.rawValue)"
         
