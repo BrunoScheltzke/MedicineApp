@@ -11,6 +11,10 @@
 		840442B6216A58B4007AE8EF /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840442B5216A58B4007AE8EF /* Keys.swift */; };
 		840442B8216A5A07007AE8EF /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840442B7216A5A07007AE8EF /* NotificationManager.swift */; };
 		840442BA216A5A1B007AE8EF /* WatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840442B9216A5A1B007AE8EF /* WatchManager.swift */; };
+		84258F2321B01E1C00FC0D34 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84258F2221B01E1C00FC0D34 /* IntentsUI.framework */; };
+		84258F2621B01E1C00FC0D34 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84258F2521B01E1C00FC0D34 /* IntentViewController.swift */; };
+		84258F2921B01E1C00FC0D34 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84258F2721B01E1C00FC0D34 /* MainInterface.storyboard */; };
+		84258F2D21B01E1C00FC0D34 /* IntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 84258F2121B01E1C00FC0D34 /* IntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		843BC438216CCBC800688B31 /* iOSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843BC437216CCBC800688B31 /* iOSManager.swift */; };
 		843CC77E216B7F1B00B39C96 /* Register+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CC77D216B7F1B00B39C96 /* Register+CoreData.swift */; };
 		8474D944216A4A83008FB7D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474D943216A4A83008FB7D8 /* AppDelegate.swift */; };
@@ -37,6 +41,10 @@
 		8474D995216A53F6008FB7D8 /* RemindersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8474D991216A53F6008FB7D8 /* RemindersViewController.xib */; };
 		8474D996216A53F6008FB7D8 /* CreateReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8474D992216A53F6008FB7D8 /* CreateReminderViewController.xib */; };
 		8474D998216A5405008FB7D8 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474D997216A5405008FB7D8 /* ReusableView.swift */; };
+		84E4051E21AEC3EE00B98DBD /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4051D21AEC3EE00B98DBD /* IntentHandler.swift */; };
+		84E4052221AEC3EE00B98DBD /* Intent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 84E4051B21AEC3ED00B98DBD /* Intent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		84E4052821AEC40300B98DBD /* TakeMedicineIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 84E4052721AEC40300B98DBD /* TakeMedicineIntent.intentdefinition */; };
+		84E4052921AEC45500B98DBD /* TakeMedicineIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 84E4052721AEC40300B98DBD /* TakeMedicineIntent.intentdefinition */; };
 		84F2AD8F216C04FE0017DB42 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F2AD8D216C04FE0017DB42 /* Interface.storyboard */; };
 		84F2AD91216C04FF0017DB42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F2AD90216C04FF0017DB42 /* Assets.xcassets */; };
 		84F2AD98216C04FF0017DB42 /* MedicineWatchApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 84F2AD97216C04FF0017DB42 /* MedicineWatchApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -62,6 +70,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		84258F2B21B01E1C00FC0D34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8474D938216A4A83008FB7D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84258F2021B01E1C00FC0D34;
+			remoteInfo = IntentUI;
+		};
+		84E4052021AEC3EE00B98DBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8474D938216A4A83008FB7D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84E4051A21AEC3ED00B98DBD;
+			remoteInfo = Intent;
+		};
 		84F2AD99216C04FF0017DB42 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8474D938216A4A83008FB7D8 /* Project object */;
@@ -79,6 +101,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		84E4052621AEC3EE00B98DBD /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				84258F2D21B01E1C00FC0D34 /* IntentUI.appex in Embed App Extensions */,
+				84E4052221AEC3EE00B98DBD /* Intent.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84F2ADAE216C05000017DB42 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -108,6 +142,11 @@
 		840442B5216A58B4007AE8EF /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		840442B7216A5A07007AE8EF /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		840442B9216A5A1B007AE8EF /* WatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchManager.swift; sourceTree = "<group>"; };
+		84258F2121B01E1C00FC0D34 /* IntentUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = IntentUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		84258F2221B01E1C00FC0D34 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		84258F2521B01E1C00FC0D34 /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		84258F2821B01E1C00FC0D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		84258F2A21B01E1C00FC0D34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		843BC437216CCBC800688B31 /* iOSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSManager.swift; sourceTree = "<group>"; };
 		843CC77D216B7F1B00B39C96 /* Register+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Register+CoreData.swift"; sourceTree = "<group>"; };
 		8474D940216A4A83008FB7D8 /* MedicineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +175,10 @@
 		8474D991216A53F6008FB7D8 /* RemindersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RemindersViewController.xib; sourceTree = "<group>"; };
 		8474D992216A53F6008FB7D8 /* CreateReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateReminderViewController.xib; sourceTree = "<group>"; };
 		8474D997216A5405008FB7D8 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		84E4051B21AEC3ED00B98DBD /* Intent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Intent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		84E4051D21AEC3EE00B98DBD /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		84E4051F21AEC3EE00B98DBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84E4052721AEC40300B98DBD /* TakeMedicineIntent.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = TakeMedicineIntent.intentdefinition; sourceTree = "<group>"; };
 		84F2AD8B216C04FE0017DB42 /* MedicineWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicineWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F2AD8E216C04FE0017DB42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		84F2AD90216C04FF0017DB42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -157,12 +200,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		84258F1E21B01E1C00FC0D34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84258F2321B01E1C00FC0D34 /* IntentsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8474D93D216A4A83008FB7D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				84F2D85A21905A7D00F6163E /* Intents.framework in Frameworks */,
 				9853F0D4855A67F9D0FC3C33 /* Pods_MedicineApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84E4051821AEC3ED00B98DBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,12 +241,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84258F2421B01E1C00FC0D34 /* IntentUI */ = {
+			isa = PBXGroup;
+			children = (
+				84258F2521B01E1C00FC0D34 /* IntentViewController.swift */,
+				84258F2721B01E1C00FC0D34 /* MainInterface.storyboard */,
+				84258F2A21B01E1C00FC0D34 /* Info.plist */,
+			);
+			path = IntentUI;
+			sourceTree = "<group>";
+		};
 		8474D937216A4A83008FB7D8 = {
 			isa = PBXGroup;
 			children = (
+				84E4052721AEC40300B98DBD /* TakeMedicineIntent.intentdefinition */,
 				8474D942216A4A83008FB7D8 /* MedicineApp */,
 				84F2AD8C216C04FE0017DB42 /* MedicineWatchApp */,
 				84F2AD9B216C04FF0017DB42 /* MedicineWatchApp Extension */,
+				84E4051C21AEC3EE00B98DBD /* Intent */,
+				84258F2421B01E1C00FC0D34 /* IntentUI */,
 				8474D941216A4A83008FB7D8 /* Products */,
 				C4D36AD9EDB2CC90FB9C3ECA /* Pods */,
 				9309955C35BC77C90E4684DB /* Frameworks */,
@@ -201,6 +272,8 @@
 				8474D940216A4A83008FB7D8 /* MedicineApp.app */,
 				84F2AD8B216C04FE0017DB42 /* MedicineWatchApp.app */,
 				84F2AD97216C04FF0017DB42 /* MedicineWatchApp Extension.appex */,
+				84E4051B21AEC3ED00B98DBD /* Intent.appex */,
+				84258F2121B01E1C00FC0D34 /* IntentUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -300,6 +373,15 @@
 			path = "Model+CoreData";
 			sourceTree = "<group>";
 		};
+		84E4051C21AEC3EE00B98DBD /* Intent */ = {
+			isa = PBXGroup;
+			children = (
+				84E4051D21AEC3EE00B98DBD /* IntentHandler.swift */,
+				84E4051F21AEC3EE00B98DBD /* Info.plist */,
+			);
+			path = Intent;
+			sourceTree = "<group>";
+		};
 		84F2AD8C216C04FE0017DB42 /* MedicineWatchApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +412,7 @@
 			children = (
 				84F2D85921905A7D00F6163E /* Intents.framework */,
 				C4597D023E5387B0B324F225 /* Pods_MedicineApp.framework */,
+				84258F2221B01E1C00FC0D34 /* IntentsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -346,6 +429,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		84258F2021B01E1C00FC0D34 /* IntentUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84258F3021B01E1C00FC0D34 /* Build configuration list for PBXNativeTarget "IntentUI" */;
+			buildPhases = (
+				84258F1D21B01E1C00FC0D34 /* Sources */,
+				84258F1E21B01E1C00FC0D34 /* Frameworks */,
+				84258F1F21B01E1C00FC0D34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IntentUI;
+			productName = IntentUI;
+			productReference = 84258F2121B01E1C00FC0D34 /* IntentUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		8474D93F216A4A83008FB7D8 /* MedicineApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8474D955216A4A85008FB7D8 /* Build configuration list for PBXNativeTarget "MedicineApp" */;
@@ -356,16 +456,36 @@
 				8474D93E216A4A83008FB7D8 /* Resources */,
 				73D568C9492FEBFBC94ADA6D /* [CP] Embed Pods Frameworks */,
 				84F2ADB0216C05000017DB42 /* Embed Watch Content */,
+				84E4052621AEC3EE00B98DBD /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				84F2ADA7216C05000017DB42 /* PBXTargetDependency */,
+				84E4052121AEC3EE00B98DBD /* PBXTargetDependency */,
+				84258F2C21B01E1C00FC0D34 /* PBXTargetDependency */,
 			);
 			name = MedicineApp;
 			productName = MedicineApp;
 			productReference = 8474D940216A4A83008FB7D8 /* MedicineApp.app */;
 			productType = "com.apple.product-type.application";
+		};
+		84E4051A21AEC3ED00B98DBD /* Intent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84E4052521AEC3EE00B98DBD /* Build configuration list for PBXNativeTarget "Intent" */;
+			buildPhases = (
+				84E4051721AEC3ED00B98DBD /* Sources */,
+				84E4051821AEC3ED00B98DBD /* Frameworks */,
+				84E4051921AEC3ED00B98DBD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Intent;
+			productName = Intent;
+			productReference = 84E4051B21AEC3ED00B98DBD /* Intent.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		84F2AD8A216C04FE0017DB42 /* MedicineWatchApp */ = {
 			isa = PBXNativeTarget;
@@ -408,10 +528,13 @@
 		8474D938216A4A83008FB7D8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Bruno Scheltzke";
 				TargetAttributes = {
+					84258F2021B01E1C00FC0D34 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					8474D93F216A4A83008FB7D8 = {
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
@@ -419,6 +542,9 @@
 								enabled = 1;
 							};
 						};
+					};
+					84E4051A21AEC3ED00B98DBD = {
+						CreatedOnToolsVersion = 10.1;
 					};
 					84F2AD8A216C04FE0017DB42 = {
 						CreatedOnToolsVersion = 10.0;
@@ -444,11 +570,21 @@
 				8474D93F216A4A83008FB7D8 /* MedicineApp */,
 				84F2AD8A216C04FE0017DB42 /* MedicineWatchApp */,
 				84F2AD96216C04FF0017DB42 /* MedicineWatchApp Extension */,
+				84E4051A21AEC3ED00B98DBD /* Intent */,
+				84258F2021B01E1C00FC0D34 /* IntentUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		84258F1F21B01E1C00FC0D34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84258F2921B01E1C00FC0D34 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8474D93E216A4A83008FB7D8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -458,6 +594,13 @@
 				8474D951216A4A85008FB7D8 /* LaunchScreen.storyboard in Resources */,
 				8474D94E216A4A85008FB7D8 /* Assets.xcassets in Resources */,
 				8474D98D216A53B8008FB7D8 /* ReminderItemTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84E4051921AEC3ED00B98DBD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +663,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		84258F1D21B01E1C00FC0D34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84258F2621B01E1C00FC0D34 /* IntentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8474D93C216A4A83008FB7D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -541,6 +692,7 @@
 				8474D982216A5303008FB7D8 /* Medicine.swift in Sources */,
 				840442B4216A5895007AE8EF /* Date.swift in Sources */,
 				840442BA216A5A1B007AE8EF /* WatchManager.swift in Sources */,
+				84E4052821AEC40300B98DBD /* TakeMedicineIntent.intentdefinition in Sources */,
 				8474D975216A5270008FB7D8 /* Medicine+CoreData.swift in Sources */,
 				8474D98A216A536C008FB7D8 /* Register.swift in Sources */,
 				8474D971216A5242008FB7D8 /* CoreDataService.swift in Sources */,
@@ -549,6 +701,15 @@
 				8474D973216A525A008FB7D8 /* Reminder+CoreData.swift in Sources */,
 				8474D94C216A4A83008FB7D8 /* MedicineApp.xcdatamodeld in Sources */,
 				8474D97A216A52AC008FB7D8 /* CreateReminderCoordinator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84E4051721AEC3ED00B98DBD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84E4051E21AEC3EE00B98DBD /* IntentHandler.swift in Sources */,
+				84E4052921AEC45500B98DBD /* TakeMedicineIntent.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +738,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		84258F2C21B01E1C00FC0D34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84258F2021B01E1C00FC0D34 /* IntentUI */;
+			targetProxy = 84258F2B21B01E1C00FC0D34 /* PBXContainerItemProxy */;
+		};
+		84E4052121AEC3EE00B98DBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84E4051A21AEC3ED00B98DBD /* Intent */;
+			targetProxy = 84E4052021AEC3EE00B98DBD /* PBXContainerItemProxy */;
+		};
 		84F2AD9A216C04FF0017DB42 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 84F2AD96216C04FF0017DB42 /* MedicineWatchApp Extension */;
@@ -590,6 +761,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		84258F2721B01E1C00FC0D34 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84258F2821B01E1C00FC0D34 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		8474D94F216A4A85008FB7D8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -609,6 +788,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		84258F2E21B01E1C00FC0D34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M3PUPH2NBH;
+				INFOPLIST_FILE = IntentUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Scheltzke.MedicineApp.IntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84258F2F21B01E1C00FC0D34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M3PUPH2NBH;
+				INFOPLIST_FILE = IntentUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Scheltzke.MedicineApp.IntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		8474D953216A4A85008FB7D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -729,6 +950,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9E932D7FF01DD3E2C3DCB71F /* Pods-MedicineApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MedicineApp/MedicineApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -752,6 +974,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8AFDF54A5AF356942EB757D9 /* Pods-MedicineApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MedicineApp/MedicineApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -766,6 +989,48 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Scheltzke.MedicineApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		84E4052321AEC3EE00B98DBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M3PUPH2NBH;
+				INFOPLIST_FILE = Intent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Scheltzke.MedicineApp.Intent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84E4052421AEC3EE00B98DBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M3PUPH2NBH;
+				INFOPLIST_FILE = Intent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Scheltzke.MedicineApp.Intent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -856,6 +1121,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		84258F3021B01E1C00FC0D34 /* Build configuration list for PBXNativeTarget "IntentUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84258F2E21B01E1C00FC0D34 /* Debug */,
+				84258F2F21B01E1C00FC0D34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8474D93B216A4A83008FB7D8 /* Build configuration list for PBXProject "MedicineApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -870,6 +1144,15 @@
 			buildConfigurations = (
 				8474D956216A4A85008FB7D8 /* Debug */,
 				8474D957216A4A85008FB7D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84E4052521AEC3EE00B98DBD /* Build configuration list for PBXNativeTarget "Intent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84E4052321AEC3EE00B98DBD /* Debug */,
+				84E4052421AEC3EE00B98DBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

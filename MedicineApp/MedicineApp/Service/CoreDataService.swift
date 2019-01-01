@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Intents
 
 class CoreDataService: LocalDatabaseServiceProtocol {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -93,7 +94,29 @@ class CoreDataService: LocalDatabaseServiceProtocol {
             listener?.updatedTodayRegisters(registers)
         }
         
+        donateShortcut(for: register)
+        
         return register
+    }
+    
+    func donateShortcut(for register: Register) {
+        let med = register.reminder.medicine.name
+        let id = register.reminder.medicine.id
+        
+        let intent = TakeMedicineIntent()
+        intent.suggestedInvocationPhrase = "I just had \(med)"
+        
+        intent.medicine = INObject(identifier: id, display: med)
+        
+        let interaction = INInteraction(intent: intent,
+                                        response: nil)
+        interaction.donate { error in
+            guard error == nil else {
+                print("Problems donating your Intent")
+                return
+            }
+            print("Intent donated")
+        }
     }
     
     func fetchReminder(byId id: String) -> Reminder? {

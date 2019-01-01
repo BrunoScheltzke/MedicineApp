@@ -79,11 +79,13 @@ class CreateReminderViewController: FormViewController {
     }
     
     func setupSiriIntent() {
-        let activity = NSUserActivity(activityType: "Scheltzke.MedicineApp.takeMedicine")
+        let identifier = "takeMedicine"
+        
+        let activity = NSUserActivity(activityType: identifier)
         activity.title = "Take today's medicine"
         activity.isEligibleForSearch = true
         activity.isEligibleForPrediction = true
-        activity.persistentIdentifier = "Scheltzke.MedicineApp.takeMedicine"
+        activity.persistentIdentifier = identifier
         self.userActivity = activity
         activity.becomeCurrent()
     }
