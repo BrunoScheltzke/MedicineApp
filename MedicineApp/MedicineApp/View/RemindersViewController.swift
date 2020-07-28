@@ -22,6 +22,10 @@ class RemindersViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        reload()
+    }
+    
+    @objc func reload() {
         viewModel.updateReminders()
         tableView.reloadData()
     }
@@ -37,6 +41,10 @@ class RemindersViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(reload), for: .valueChanged)
+        tableView.refreshControl?.endRefreshing()
     }
     
     @objc func addReminder() {

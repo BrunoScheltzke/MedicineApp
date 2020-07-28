@@ -486,17 +486,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MedicineApp/Pods-MedicineApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MedicineApp/Pods-MedicineApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MedicineApp/Pods-MedicineApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MedicineApp/Pods-MedicineApp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MedicineApp/Pods-MedicineApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9CD66C4D53161F9679E7E02D /* [CP] Check Pods Manifest.lock */ = {

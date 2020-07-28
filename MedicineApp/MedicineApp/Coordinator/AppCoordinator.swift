@@ -22,6 +22,7 @@ class AppCoordinator: NavigationCoordinator {
     var navigationController: UINavigationController
     var window: UIWindow?
     var database: LocalDatabaseServiceProtocol!
+    let medicinesVC = RemindersViewController()
     
     init(window: UIWindow?, database: LocalDatabaseServiceProtocol) {
         self.database = database
@@ -33,7 +34,6 @@ class AppCoordinator: NavigationCoordinator {
     func start() {
         guard let window = window else { return }
         
-        let medicinesVC = RemindersViewController()
         let mecicinesVM = RemindersViewModel(database: database, delegate: self)
         database.listener = mecicinesVM
         medicinesVC.viewModel = mecicinesVM
@@ -47,6 +47,13 @@ class AppCoordinator: NavigationCoordinator {
 extension AppCoordinator: RemindersViewModelDelegate {
     func didAskToAddReminder() {
         let createReminderCoordinator = CreateReminderCoordinator(presenter: navigationController, database: database)
+        createReminderCoordinator.delegate = self
         createReminderCoordinator.start()
+    }
+}
+
+extension AppCoordinator: CreateReminderDelegate {
+    func finishCreatingReminder() {
+        medicinesVC.reload()
     }
 }

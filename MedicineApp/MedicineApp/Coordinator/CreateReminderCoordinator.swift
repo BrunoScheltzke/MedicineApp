@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol CreateReminderDelegate {
+    func finishCreatingReminder()
+}
+
 class CreateReminderCoordinator: NavigationCoordinator {
     internal var navigationController: UINavigationController
     private var presenter: UIViewController
     private var database: LocalDatabaseServiceProtocol
+    var delegate: CreateReminderDelegate?
     
     init(presenter: UIViewController, database: LocalDatabaseServiceProtocol) {
         navigationController = UINavigationController()
@@ -29,6 +34,7 @@ class CreateReminderCoordinator: NavigationCoordinator {
 
 extension CreateReminderCoordinator: CreateReminderViewModelProtocol {
     func didAskToDismiss() {
+        delegate?.finishCreatingReminder()
         navigationController.dismiss(animated: true, completion: nil)
     }
 }
