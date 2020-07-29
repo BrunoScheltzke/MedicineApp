@@ -29,7 +29,8 @@ class TodayViewController: UIViewController {
         super.viewDidLoad()
         tableView.constraintFully(to: view)
         tableView.register(type: ReminderItemTableViewCell.self)
-        tableView.tableFooterView = nil
+        tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView()
         tableView.delegate = self
         tableView.dataSource = self
         viewModel.getTodayRegisters()

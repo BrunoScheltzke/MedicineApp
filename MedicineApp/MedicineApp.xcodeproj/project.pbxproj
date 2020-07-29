@@ -63,6 +63,7 @@
 		94495F0424D10AFE00C745A3 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94495F0324D10AFE00C745A3 /* TodayViewModel.swift */; };
 		94495F0624D10D9200C745A3 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94495F0524D10D9200C745A3 /* ViewController+Extension.swift */; };
 		94495F0824D10DC000C745A3 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94495F0724D10DC000C745A3 /* UIView+Extension.swift */; };
+		94495F0A24D1A1D400C745A3 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94495F0924D1A1D400C745A3 /* ShadowView.swift */; };
 		9853F0D4855A67F9D0FC3C33 /* Pods_MedicineApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4597D023E5387B0B324F225 /* Pods_MedicineApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -162,6 +163,7 @@
 		94495F0324D10AFE00C745A3 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		94495F0524D10D9200C745A3 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		94495F0724D10DC000C745A3 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		94495F0924D1A1D400C745A3 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		9E932D7FF01DD3E2C3DCB71F /* Pods-MedicineApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicineApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MedicineApp/Pods-MedicineApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C4597D023E5387B0B324F225 /* Pods_MedicineApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MedicineApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -219,12 +221,12 @@
 			isa = PBXGroup;
 			children = (
 				84F2D858219058C700F6163E /* MedicineApp.entitlements */,
+				8474D943216A4A83008FB7D8 /* AppDelegate.swift */,
 				8474D95D216A4B8D008FB7D8 /* Coordinator */,
 				8474D95C216A4B86008FB7D8 /* Service */,
 				8474D95B216A4B7D008FB7D8 /* ViewModel */,
 				8474D95A216A4B77008FB7D8 /* Model */,
 				8474D959216A4B6C008FB7D8 /* View */,
-				8474D943216A4A83008FB7D8 /* AppDelegate.swift */,
 				8474D958216A4AEC008FB7D8 /* Supporting Files */,
 				8474D952216A4A85008FB7D8 /* Info.plist */,
 				8474D94D216A4A85008FB7D8 /* Assets.xcassets */,
@@ -243,6 +245,7 @@
 				840442B5216A58B4007AE8EF /* Keys.swift */,
 				94495F0524D10D9200C745A3 /* ViewController+Extension.swift */,
 				94495F0724D10DC000C745A3 /* UIView+Extension.swift */,
+				94495F0924D1A1D400C745A3 /* ShadowView.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				8474D971216A5242008FB7D8 /* CoreDataService.swift in Sources */,
 				94495F0024D10AB200C745A3 /* TodayViewController.swift in Sources */,
 				8474D998216A5405008FB7D8 /* ReusableView.swift in Sources */,
+				94495F0A24D1A1D400C745A3 /* ShadowView.swift in Sources */,
 				8474D980216A52E7008FB7D8 /* CreateReminderViewModel.swift in Sources */,
 				94495F0624D10D9200C745A3 /* ViewController+Extension.swift in Sources */,
 				8474D973216A525A008FB7D8 /* Reminder+CoreData.swift in Sources */,

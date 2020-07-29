@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         coredata.watchListener = watchManager
         
         appCoordinator = AppCoordinator(window: window, database: coredata)
-        appCoordinator.startApp()
+        appCoordinator.start()
 
         return true
     }

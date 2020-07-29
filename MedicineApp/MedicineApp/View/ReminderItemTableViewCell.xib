@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,81 +14,104 @@
             <rect key="frame" x="0.0" y="0.0" width="329" height="87"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="329" height="86.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="329" height="87"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3s-cy-as8" customClass="ShadowView" customModule="MedicineApp" customModuleProvider="target">
+                        <rect key="frame" x="14" y="8" width="301" height="71"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                <real key="value" value="16"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="coJ-FI-iM0">
-                        <rect key="frame" x="14" y="0.0" width="301" height="86.5"/>
+                        <rect key="frame" x="14" y="8" width="301" height="71"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Yq-bm-guo">
-                                <rect key="frame" x="0.0" y="0.0" width="19" height="86.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="19" id="Gfq-pw-kem"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remedio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TmJ-Hq-bdH">
-                                <rect key="frame" x="27" y="8" width="234" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xt1-B5-RWH">
-                                <rect key="frame" x="27" y="57" width="251" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantidade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0p8-88-KJT">
-                                <rect key="frame" x="27" y="33" width="251" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNS-AT-ekv">
-                                <rect key="frame" x="163" y="27.5" width="130" height="32"/>
-                                <color key="backgroundColor" red="0.001842024725" green="0.64871921190000004" blue="0.0028580690790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="MYf-gy-K8x"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                <state key="normal" title="Already taken">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="takeMedicine:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="iv4-E8-kJi"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FyV-kC-HJH">
+                                <rect key="frame" x="0.0" y="0.0" width="301" height="71"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Yq-bm-guo">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="71"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Gfq-pw-kem"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="kVx-7n-X8k">
+                                        <rect key="frame" x="40" y="0.0" width="123" height="71"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Remedio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TmJ-Hq-bdH">
+                                                <rect key="frame" x="0.0" y="0.0" width="67.5" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Quantidade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0p8-88-KJT">
+                                                <rect key="frame" x="0.0" y="27" width="89" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Hora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xt1-B5-RWH">
+                                                <rect key="frame" x="0.0" y="50.5" width="37" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNS-AT-ekv">
+                                        <rect key="frame" x="163" y="0.0" width="130" height="71"/>
+                                        <color key="backgroundColor" red="0.001842024725" green="0.64871921190000004" blue="0.0028580690790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="130" id="MYf-gy-K8x"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <state key="normal" title="Already taken">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="takeMedicine:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="iv4-E8-kJi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="8"/>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="MNS-AT-ekv" secondAttribute="trailing" constant="8" id="KSh-tH-7qv"/>
-                            <constraint firstItem="MNS-AT-ekv" firstAttribute="centerY" secondItem="coJ-FI-iM0" secondAttribute="centerY" id="YIY-5B-yuA"/>
-                            <constraint firstItem="1Yq-bm-guo" firstAttribute="leading" secondItem="coJ-FI-iM0" secondAttribute="leading" id="acQ-VW-Zgj"/>
-                            <constraint firstItem="1Yq-bm-guo" firstAttribute="top" secondItem="coJ-FI-iM0" secondAttribute="top" id="uGf-PB-Z3t"/>
-                            <constraint firstAttribute="bottom" secondItem="1Yq-bm-guo" secondAttribute="bottom" id="ySW-rr-CLe"/>
+                            <constraint firstAttribute="trailing" secondItem="FyV-kC-HJH" secondAttribute="trailing" id="2Vr-6a-ewe"/>
+                            <constraint firstAttribute="bottom" secondItem="FyV-kC-HJH" secondAttribute="bottom" id="SoD-Xo-Kxz"/>
+                            <constraint firstItem="FyV-kC-HJH" firstAttribute="leading" secondItem="coJ-FI-iM0" secondAttribute="leading" id="deK-UM-ocB"/>
+                            <constraint firstItem="FyV-kC-HJH" firstAttribute="top" secondItem="coJ-FI-iM0" secondAttribute="top" id="khd-xL-hGV"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="16"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="coJ-FI-iM0" secondAttribute="bottom" constant="8" id="2O8-k9-LJO"/>
+                    <constraint firstItem="coJ-FI-iM0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="4VI-Ox-luc"/>
                     <constraint firstItem="coJ-FI-iM0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="53Y-Jd-zrS"/>
-                    <constraint firstAttribute="bottom" secondItem="coJ-FI-iM0" secondAttribute="bottom" id="HO1-XR-rM9"/>
-                    <constraint firstAttribute="trailing" secondItem="coJ-FI-iM0" secondAttribute="trailing" constant="14" id="L4Z-af-sZr"/>
-                    <constraint firstItem="coJ-FI-iM0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vYu-DB-zMi"/>
+                    <constraint firstItem="h3s-cy-as8" firstAttribute="centerX" secondItem="coJ-FI-iM0" secondAttribute="centerX" id="Swj-S8-iRU"/>
+                    <constraint firstAttribute="trailing" secondItem="coJ-FI-iM0" secondAttribute="trailing" constant="14" id="dsf-me-vbx"/>
+                    <constraint firstItem="h3s-cy-as8" firstAttribute="width" secondItem="coJ-FI-iM0" secondAttribute="width" id="gpV-qR-Yys"/>
+                    <constraint firstItem="h3s-cy-as8" firstAttribute="centerY" secondItem="coJ-FI-iM0" secondAttribute="centerY" id="m3d-bw-b34"/>
+                    <constraint firstItem="h3s-cy-as8" firstAttribute="height" secondItem="coJ-FI-iM0" secondAttribute="height" id="qeY-8R-cGO"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
