@@ -42,6 +42,18 @@ class AppCoordinator: NavigationCoordinator {
         window.makeKeyAndVisible()
         window.rootViewController = navigationController
     }
+    
+    func startApp() {
+        guard let window = window else { return }
+        
+        let viewModel = TodayViewModel()
+        let viewController = TodayViewController(viewModel: viewModel)
+        navigationController.viewControllers = [viewController]
+        
+        window.makeKeyAndVisible()
+        window.rootViewController = navigationController
+    }
+    
 }
 
 extension AppCoordinator: RemindersViewModelDelegate {

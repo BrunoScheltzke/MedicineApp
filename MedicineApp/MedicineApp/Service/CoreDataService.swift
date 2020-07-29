@@ -16,7 +16,7 @@ class CoreDataService: LocalDatabaseServiceProtocol {
     var watchListener: RegisterListener?
     var listener: RegisterListener?
     
-    init(notificationService: NotificationServiceProtocol) {
+    init(notificationService: NotificationServiceProtocol = NotificationManager()) {
         container = appDelegate.persistentContainer
         self.notificationService = notificationService
     }
