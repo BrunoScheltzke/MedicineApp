@@ -1,0 +1,5 @@
+strings:
+    inputs: MedicineApp/en.lproj/Localizable.strings
+    outputs:
+      - templateName: structured-swift4
+        output: MedicineApp/Supporting Files/Generated/Strings.swift

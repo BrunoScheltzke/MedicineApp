@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodayViewController: UIViewController {
+class TodayViewController: BaseViewController {
 
     let viewModel: TodayViewModel
     
@@ -34,6 +34,7 @@ class TodayViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         viewModel.getTodayRegisters()
+        navigationItem.title = NSLocalizedString("You like?", comment: "")
     }
 
 }

@@ -22,6 +22,14 @@ public enum DefaultStyle {
             }
         }()
         
+        public static let background: UIColor = {
+            if #available(iOS 13.0, *) {
+                return .systemBackground
+            } else {
+                return .white
+            }
+        }()
+        
         public static var tint: UIColor = {
             if #available(iOS 13, *) {
                 return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in

@@ -25,7 +25,7 @@ class AlarmManager: NotificationServiceProtocol {
         } else {
             let calendar = EKCalendar(for: .event, eventStore: eventStore)
             calendar.cgColor = Style.Colors.calendar.cgColor
-            calendar.title = "Health"
+            calendar.title = L10n.calendarName
             try? eventStore.saveCalendar(calendar, commit: true)
             return calendar
         }

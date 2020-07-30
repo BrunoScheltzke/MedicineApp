@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RemindersViewController: UIViewController {
+class RemindersViewController: BaseViewController {
     var viewModel: RemindersViewModel!
     
     @IBOutlet weak var tableView: UITableView!

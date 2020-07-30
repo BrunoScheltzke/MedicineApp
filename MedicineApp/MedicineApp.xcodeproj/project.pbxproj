@@ -11,6 +11,10 @@
 		840442B6216A58B4007AE8EF /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840442B5216A58B4007AE8EF /* Keys.swift */; };
 		840442B8216A5A07007AE8EF /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840442B7216A5A07007AE8EF /* NotificationManager.swift */; };
 		840442BA216A5A1B007AE8EF /* WatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840442B9216A5A1B007AE8EF /* WatchManager.swift */; };
+		84328C7F24D31C55004A82EF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84328C8124D31C55004A82EF /* Localizable.strings */; };
+		84328C8424D324EB004A82EF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84328C8324D324EB004A82EF /* BaseViewController.swift */; };
+		84328C8724D328A8004A82EF /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84328C8624D328A8004A82EF /* Strings.swift */; };
+		84328C8A24D32A40004A82EF /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84328C8924D32A40004A82EF /* BartyCrouch.swift */; };
 		843BC438216CCBC800688B31 /* iOSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843BC437216CCBC800688B31 /* iOSManager.swift */; };
 		843CC77E216B7F1B00B39C96 /* Register+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CC77D216B7F1B00B39C96 /* Register+CoreData.swift */; };
 		8451F8F824D2FEA30068D643 /* AlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451F8F724D2FEA30068D643 /* AlarmManager.swift */; };
@@ -114,6 +118,13 @@
 		840442B5216A58B4007AE8EF /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		840442B7216A5A07007AE8EF /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		840442B9216A5A1B007AE8EF /* WatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchManager.swift; sourceTree = "<group>"; };
+		84328C7D24D31B9C004A82EF /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		84328C7E24D31B9C004A82EF /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Interface.strings"; sourceTree = "<group>"; };
+		84328C8024D31C55004A82EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84328C8224D31C58004A82EF /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		84328C8324D324EB004A82EF /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		84328C8624D328A8004A82EF /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		84328C8924D32A40004A82EF /* BartyCrouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartyCrouch.swift; sourceTree = "<group>"; };
 		843BC437216CCBC800688B31 /* iOSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSManager.swift; sourceTree = "<group>"; };
 		843CC77D216B7F1B00B39C96 /* Register+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Register+CoreData.swift"; sourceTree = "<group>"; };
 		8451F8F724D2FEA30068D643 /* AlarmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmManager.swift; sourceTree = "<group>"; };
@@ -212,8 +223,8 @@
 			children = (
 				8474D97B216A52C4008FB7D8 /* RemindersViewModel.swift */,
 				8474D98F216A53F6008FB7D8 /* RemindersViewController.swift */,
-				8474D97D216A52D3008FB7D8 /* ReminderCellViewModel.swift */,
 				8474D991216A53F6008FB7D8 /* RemindersViewController.xib */,
+				8474D97D216A52D3008FB7D8 /* ReminderCellViewModel.swift */,
 				8474D98C216A53B8008FB7D8 /* ReminderItemTableViewCell.swift */,
 				8474D98B216A53B8008FB7D8 /* ReminderItemTableViewCell.xib */,
 			);
@@ -227,6 +238,14 @@
 				94495F0724D10DC000C745A3 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		84328C8824D328AC004A82EF /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				84328C8624D328A8004A82EF /* Strings.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		8474D937216A4A83008FB7D8 = {
@@ -268,6 +287,7 @@
 				84F2D858219058C700F6163E /* MedicineApp.entitlements */,
 				8474D94D216A4A85008FB7D8 /* Assets.xcassets */,
 				8474D94A216A4A83008FB7D8 /* MedicineApp.xcdatamodeld */,
+				84328C8124D31C55004A82EF /* Localizable.strings */,
 			);
 			path = MedicineApp;
 			sourceTree = "<group>";
@@ -279,6 +299,8 @@
 				8474D997216A5405008FB7D8 /* ReusableView.swift */,
 				840442B3216A5895007AE8EF /* Date.swift */,
 				840442B5216A58B4007AE8EF /* Keys.swift */,
+				84328C8824D328AC004A82EF /* Generated */,
+				84328C8924D32A40004A82EF /* BartyCrouch.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -332,6 +354,7 @@
 			children = (
 				94495F0924D1A1D400C745A3 /* ShadowView.swift */,
 				84CFC82624D30C78006F1EE6 /* Style.swift */,
+				84328C8324D324EB004A82EF /* BaseViewController.swift */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
@@ -397,6 +420,7 @@
 			buildConfigurationList = 8474D955216A4A85008FB7D8 /* Build configuration list for PBXNativeTarget "MedicineApp" */;
 			buildPhases = (
 				9CD66C4D53161F9679E7E02D /* [CP] Check Pods Manifest.lock */,
+				84328C8524D32794004A82EF /* Localization */,
 				8474D93C216A4A83008FB7D8 /* Sources */,
 				8474D93D216A4A83008FB7D8 /* Frameworks */,
 				8474D93E216A4A83008FB7D8 /* Resources */,
@@ -481,6 +505,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 8474D937216A4A83008FB7D8;
 			productRefGroup = 8474D941216A4A83008FB7D8 /* Products */;
@@ -500,6 +525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8474D996216A53F6008FB7D8 /* CreateReminderViewController.xib in Resources */,
+				84328C7F24D31C55004A82EF /* Localizable.strings in Resources */,
 				8474D995216A53F6008FB7D8 /* RemindersViewController.xib in Resources */,
 				94495F0124D10AB200C745A3 /* TodayViewController.xib in Resources */,
 				8474D951216A4A85008FB7D8 /* LaunchScreen.storyboard in Resources */,
@@ -545,6 +571,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MedicineApp/Pods-MedicineApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		84328C8524D32794004A82EF /* Localization */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Localization;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which bartycrouch > /dev/null; then\n    bartycrouch update -x\n    bartycrouch lint -x\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\nif which swiftgen > /dev/null; then\n    swiftgen\nelse\n    echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+		};
 		9CD66C4D53161F9679E7E02D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -572,6 +616,7 @@
 			files = (
 				8474D97C216A52C4008FB7D8 /* RemindersViewModel.swift in Sources */,
 				94495F0824D10DC000C745A3 /* UIView+Extension.swift in Sources */,
+				84328C8424D324EB004A82EF /* BaseViewController.swift in Sources */,
 				8474D986216A5325008FB7D8 /* Dosage.swift in Sources */,
 				8474D98E216A53B8008FB7D8 /* ReminderItemTableViewCell.swift in Sources */,
 				8474D978216A5297008FB7D8 /* AppCoordinator.swift in Sources */,
@@ -580,7 +625,9 @@
 				840442B6216A58B4007AE8EF /* Keys.swift in Sources */,
 				8474D944216A4A83008FB7D8 /* AppDelegate.swift in Sources */,
 				8474D984216A5313008FB7D8 /* Reminder.swift in Sources */,
+				84328C8A24D32A40004A82EF /* BartyCrouch.swift in Sources */,
 				8474D993216A53F6008FB7D8 /* RemindersViewController.swift in Sources */,
+				84328C8724D328A8004A82EF /* Strings.swift in Sources */,
 				84F2ADBB216C0C8F0017DB42 /* Services.swift in Sources */,
 				8474D97E216A52D3008FB7D8 /* ReminderCellViewModel.swift in Sources */,
 				8474D994216A53F6008FB7D8 /* CreateReminderViewController.swift in Sources */,
@@ -641,10 +688,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		84328C8124D31C55004A82EF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84328C8024D31C55004A82EF /* en */,
+				84328C8224D31C58004A82EF /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		8474D94F216A4A85008FB7D8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8474D950216A4A85008FB7D8 /* Base */,
+				84328C7D24D31B9C004A82EF /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -653,6 +710,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				84F2AD8E216C04FE0017DB42 /* Base */,
+				84328C7E24D31B9C004A82EF /* pt-BR */,
 			);
 			name = Interface.storyboard;
 			sourceTree = "<group>";
@@ -664,6 +722,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -725,6 +784,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
