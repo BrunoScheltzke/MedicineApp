@@ -6,8 +6,10 @@
 //  Copyright © 2020 Bruno Scheltzke. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import EventKit
+
+private let kCalendarId = "healthCalendarID"
 
 class AlarmManager: NotificationServiceProtocol {
     
@@ -15,6 +17,18 @@ class AlarmManager: NotificationServiceProtocol {
     
     init() {
         self.eventStore = EKEventStore()
+    }
+    
+    private func getCalendar() -> EKCalendar {
+        if let calendar = eventStore.calendar(withIdentifier: kCalendarId) {
+            return calendar
+        } else {
+            let calendar = EKCalendar(for: .event, eventStore: eventStore)
+            calendar.cgColor = Style.Colors.calendar.cgColor
+            calendar.title = "Health"
+            try? eventStore.saveCalendar(calendar, commit: true)
+            return calendar
+        }
     }
     
     func setup(_ reminder: Reminder) -> [String] {

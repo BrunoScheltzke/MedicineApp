@@ -38,6 +38,7 @@
 		8474D995216A53F6008FB7D8 /* RemindersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8474D991216A53F6008FB7D8 /* RemindersViewController.xib */; };
 		8474D996216A53F6008FB7D8 /* CreateReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8474D992216A53F6008FB7D8 /* CreateReminderViewController.xib */; };
 		8474D998216A5405008FB7D8 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474D997216A5405008FB7D8 /* ReusableView.swift */; };
+		84CFC82724D30C78006F1EE6 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CFC82624D30C78006F1EE6 /* Style.swift */; };
 		84F2AD8F216C04FE0017DB42 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F2AD8D216C04FE0017DB42 /* Interface.storyboard */; };
 		84F2AD91216C04FF0017DB42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F2AD90216C04FF0017DB42 /* Assets.xcassets */; };
 		84F2AD98216C04FF0017DB42 /* MedicineWatchApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 84F2AD97216C04FF0017DB42 /* MedicineWatchApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -47,8 +48,6 @@
 		84F2ADA3216C05000017DB42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F2ADA2216C05000017DB42 /* Assets.xcassets */; };
 		84F2ADA8216C05000017DB42 /* MedicineWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 84F2AD8B216C04FE0017DB42 /* MedicineWatchApp.app */; };
 		84F2ADB2216C08490017DB42 /* RegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2ADB1216C08490017DB42 /* RegisterCell.swift */; };
-		84F2ADB3216C0C680017DB42 /* RemindersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474D97B216A52C4008FB7D8 /* RemindersViewModel.swift */; };
-		84F2ADB4216C0C680017DB42 /* ReminderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474D97D216A52D3008FB7D8 /* ReminderCellViewModel.swift */; };
 		84F2ADB5216C0C7B0017DB42 /* Medicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474D981216A5303008FB7D8 /* Medicine.swift */; };
 		84F2ADB6216C0C7B0017DB42 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474D983216A5313008FB7D8 /* Reminder.swift */; };
 		84F2ADB7216C0C7B0017DB42 /* Dosage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474D985216A5325008FB7D8 /* Dosage.swift */; };
@@ -144,6 +143,7 @@
 		8474D991216A53F6008FB7D8 /* RemindersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RemindersViewController.xib; sourceTree = "<group>"; };
 		8474D992216A53F6008FB7D8 /* CreateReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateReminderViewController.xib; sourceTree = "<group>"; };
 		8474D997216A5405008FB7D8 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		84CFC82624D30C78006F1EE6 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		84F2AD8B216C04FE0017DB42 /* MedicineWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicineWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F2AD8E216C04FE0017DB42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		84F2AD90216C04FF0017DB42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -197,6 +197,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84328C7424D310FD004A82EF /* CreateReminderScene */ = {
+			isa = PBXGroup;
+			children = (
+				8474D97F216A52E7008FB7D8 /* CreateReminderViewModel.swift */,
+				8474D990216A53F6008FB7D8 /* CreateReminderViewController.swift */,
+				8474D992216A53F6008FB7D8 /* CreateReminderViewController.xib */,
+			);
+			path = CreateReminderScene;
+			sourceTree = "<group>";
+		};
+		84328C7524D3111C004A82EF /* Week Scene */ = {
+			isa = PBXGroup;
+			children = (
+				8474D97B216A52C4008FB7D8 /* RemindersViewModel.swift */,
+				8474D98F216A53F6008FB7D8 /* RemindersViewController.swift */,
+				8474D97D216A52D3008FB7D8 /* ReminderCellViewModel.swift */,
+				8474D991216A53F6008FB7D8 /* RemindersViewController.xib */,
+				8474D98C216A53B8008FB7D8 /* ReminderItemTableViewCell.swift */,
+				8474D98B216A53B8008FB7D8 /* ReminderItemTableViewCell.xib */,
+			);
+			path = "Week Scene";
+			sourceTree = "<group>";
+		};
+		84328C7624D3117E004A82EF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				94495F0524D10D9200C745A3 /* ViewController+Extension.swift */,
+				94495F0724D10DC000C745A3 /* UIView+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8474D937216A4A83008FB7D8 = {
 			isa = PBXGroup;
 			children = (
@@ -222,18 +254,20 @@
 		8474D942216A4A83008FB7D8 /* MedicineApp */ = {
 			isa = PBXGroup;
 			children = (
-				84F2D858219058C700F6163E /* MedicineApp.entitlements */,
+				8474D952216A4A85008FB7D8 /* Info.plist */,
 				8474D943216A4A83008FB7D8 /* AppDelegate.swift */,
 				8474D95D216A4B8D008FB7D8 /* Coordinator */,
 				8474D95C216A4B86008FB7D8 /* Service */,
-				8474D95B216A4B7D008FB7D8 /* ViewModel */,
 				8474D95A216A4B77008FB7D8 /* Model */,
-				8474D959216A4B6C008FB7D8 /* View */,
+				84328C7624D3117E004A82EF /* Extensions */,
 				8474D958216A4AEC008FB7D8 /* Supporting Files */,
-				8474D952216A4A85008FB7D8 /* Info.plist */,
+				84328C7424D310FD004A82EF /* CreateReminderScene */,
+				94495F0224D10AB600C745A3 /* Today Scene */,
+				84328C7524D3111C004A82EF /* Week Scene */,
+				84CFC82824D30CAA006F1EE6 /* DesignSystem */,
+				84F2D858219058C700F6163E /* MedicineApp.entitlements */,
 				8474D94D216A4A85008FB7D8 /* Assets.xcassets */,
 				8474D94A216A4A83008FB7D8 /* MedicineApp.xcdatamodeld */,
-				94495F0224D10AB600C745A3 /* Today Scene */,
 			);
 			path = MedicineApp;
 			sourceTree = "<group>";
@@ -245,29 +279,14 @@
 				8474D997216A5405008FB7D8 /* ReusableView.swift */,
 				840442B3216A5895007AE8EF /* Date.swift */,
 				840442B5216A58B4007AE8EF /* Keys.swift */,
-				94495F0524D10D9200C745A3 /* ViewController+Extension.swift */,
-				94495F0724D10DC000C745A3 /* UIView+Extension.swift */,
-				94495F0924D1A1D400C745A3 /* ShadowView.swift */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8474D959216A4B6C008FB7D8 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				8474D990216A53F6008FB7D8 /* CreateReminderViewController.swift */,
-				8474D992216A53F6008FB7D8 /* CreateReminderViewController.xib */,
-				8474D98F216A53F6008FB7D8 /* RemindersViewController.swift */,
-				8474D991216A53F6008FB7D8 /* RemindersViewController.xib */,
-				8474D98C216A53B8008FB7D8 /* ReminderItemTableViewCell.swift */,
-				8474D98B216A53B8008FB7D8 /* ReminderItemTableViewCell.xib */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		8474D95A216A4B77008FB7D8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8474D976216A527D008FB7D8 /* Model+CoreData */,
 				8474D981216A5303008FB7D8 /* Medicine.swift */,
 				8474D983216A5313008FB7D8 /* Reminder.swift */,
 				8474D985216A5325008FB7D8 /* Dosage.swift */,
@@ -277,21 +296,10 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		8474D95B216A4B7D008FB7D8 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				8474D97B216A52C4008FB7D8 /* RemindersViewModel.swift */,
-				8474D97D216A52D3008FB7D8 /* ReminderCellViewModel.swift */,
-				8474D97F216A52E7008FB7D8 /* CreateReminderViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		8474D95C216A4B86008FB7D8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				8474D970216A5242008FB7D8 /* CoreDataService.swift */,
-				8474D976216A527D008FB7D8 /* Model+CoreData */,
 				840442B7216A5A07007AE8EF /* NotificationManager.swift */,
 				840442B9216A5A1B007AE8EF /* WatchManager.swift */,
 				84F2ADBA216C0C8F0017DB42 /* Services.swift */,
@@ -317,6 +325,15 @@
 				843CC77D216B7F1B00B39C96 /* Register+CoreData.swift */,
 			);
 			path = "Model+CoreData";
+			sourceTree = "<group>";
+		};
+		84CFC82824D30CAA006F1EE6 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				94495F0924D1A1D400C745A3 /* ShadowView.swift */,
+				84CFC82624D30C78006F1EE6 /* Style.swift */,
+			);
+			path = DesignSystem;
 			sourceTree = "<group>";
 		};
 		84F2AD8C216C04FE0017DB42 /* MedicineWatchApp */ = {
@@ -576,6 +593,7 @@
 				8474D975216A5270008FB7D8 /* Medicine+CoreData.swift in Sources */,
 				8474D98A216A536C008FB7D8 /* Register.swift in Sources */,
 				8474D971216A5242008FB7D8 /* CoreDataService.swift in Sources */,
+				84CFC82724D30C78006F1EE6 /* Style.swift in Sources */,
 				94495F0024D10AB200C745A3 /* TodayViewController.swift in Sources */,
 				8474D998216A5405008FB7D8 /* ReusableView.swift in Sources */,
 				94495F0A24D1A1D400C745A3 /* ShadowView.swift in Sources */,
@@ -594,7 +612,6 @@
 				84F2ADB5216C0C7B0017DB42 /* Medicine.swift in Sources */,
 				84F2ADBC216C0CC80017DB42 /* Services.swift in Sources */,
 				84F2ADB9216C0C7B0017DB42 /* Register.swift in Sources */,
-				84F2ADB4216C0C680017DB42 /* ReminderCellViewModel.swift in Sources */,
 				84F2ADBD216C0CFC0017DB42 /* Keys.swift in Sources */,
 				843BC438216CCBC800688B31 /* iOSManager.swift in Sources */,
 				84F2ADA1216C04FF0017DB42 /* NotificationController.swift in Sources */,
@@ -604,7 +621,6 @@
 				84F2ADBE216C0D090017DB42 /* Date.swift in Sources */,
 				84F2ADB8216C0C7B0017DB42 /* Frequency.swift in Sources */,
 				84F2AD9D216C04FF0017DB42 /* InterfaceController.swift in Sources */,
-				84F2ADB3216C0C680017DB42 /* RemindersViewModel.swift in Sources */,
 				84F2ADB6216C0C7B0017DB42 /* Reminder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
