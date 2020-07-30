@@ -13,6 +13,7 @@
 		840442BA216A5A1B007AE8EF /* WatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840442B9216A5A1B007AE8EF /* WatchManager.swift */; };
 		843BC438216CCBC800688B31 /* iOSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843BC437216CCBC800688B31 /* iOSManager.swift */; };
 		843CC77E216B7F1B00B39C96 /* Register+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CC77D216B7F1B00B39C96 /* Register+CoreData.swift */; };
+		8451F8F824D2FEA30068D643 /* AlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451F8F724D2FEA30068D643 /* AlarmManager.swift */; };
 		8474D944216A4A83008FB7D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474D943216A4A83008FB7D8 /* AppDelegate.swift */; };
 		8474D94C216A4A83008FB7D8 /* MedicineApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8474D94A216A4A83008FB7D8 /* MedicineApp.xcdatamodeld */; };
 		8474D94E216A4A85008FB7D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8474D94D216A4A85008FB7D8 /* Assets.xcassets */; };
@@ -116,6 +117,7 @@
 		840442B9216A5A1B007AE8EF /* WatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchManager.swift; sourceTree = "<group>"; };
 		843BC437216CCBC800688B31 /* iOSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSManager.swift; sourceTree = "<group>"; };
 		843CC77D216B7F1B00B39C96 /* Register+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Register+CoreData.swift"; sourceTree = "<group>"; };
+		8451F8F724D2FEA30068D643 /* AlarmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmManager.swift; sourceTree = "<group>"; };
 		8474D940216A4A83008FB7D8 /* MedicineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8474D943216A4A83008FB7D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8474D94B216A4A83008FB7D8 /* MedicineApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MedicineApp.xcdatamodel; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				840442B7216A5A07007AE8EF /* NotificationManager.swift */,
 				840442B9216A5A1B007AE8EF /* WatchManager.swift */,
 				84F2ADBA216C0C8F0017DB42 /* Services.swift */,
+				8451F8F724D2FEA30068D643 /* AlarmManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				8474D994216A53F6008FB7D8 /* CreateReminderViewController.swift in Sources */,
 				8474D988216A533D008FB7D8 /* Frequency.swift in Sources */,
 				8474D982216A5303008FB7D8 /* Medicine.swift in Sources */,
+				8451F8F824D2FEA30068D643 /* AlarmManager.swift in Sources */,
 				840442B4216A5895007AE8EF /* Date.swift in Sources */,
 				840442BA216A5A1B007AE8EF /* WatchManager.swift in Sources */,
 				94495F0424D10AFE00C745A3 /* TodayViewModel.swift in Sources */,

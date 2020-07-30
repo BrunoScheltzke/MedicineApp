@@ -28,7 +28,7 @@ protocol RegisterListener {
 }
 
 protocol NotificationServiceProtocol {
-    func setup(_ reminder: Reminder) -> [String]
+    @discardableResult func setup(_ reminder: Reminder) -> [String]
     func requestAuthorization(completion: @escaping(NotifiationResult) -> Void)
 }
 
